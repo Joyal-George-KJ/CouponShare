@@ -1,0 +1,46 @@
+
+
+
+{% include 'user_header.html' %}
+
+
+	<center>
+
+		<h1 style="color: white">Complaint</h1>
+<form method="post">
+	<table  class="table" style=";color: white;width: 500px">
+		
+<tr>	
+		<th>Complaint</th>
+		<td><textarea name="complaint" required="" class="form-control"></textarea></td>
+	</tr>
+	<tr>
+		<td style="text-align: center;" colspan="2"><input type="submit" name="com_sub" class="btn btn-success"></td>
+	</tr>
+</table>
+
+</form>
+</center></div>
+<h1  style="=color: white">View Reply</h1>
+<table class="table" style="width: 500px;color: ">
+	
+	<tr>
+		<th>Index</th>
+		
+		<th>Complaint</th>
+		<th>Reply</th>
+		<th>Date & Time</th>
+	</tr>
+	{% for i in data['view'] %}
+	<tr>
+		<td>{{loop.index}}</td>
+		<td>{{i['complaint']}}</td>
+		<td>{{i['reply']}}</td>
+		<td>{{i['date']}}</td>
+	</tr>
+	{% endfor %}
+</table>
+</center>
+</form>
+
+{% include 'footer.html'%}

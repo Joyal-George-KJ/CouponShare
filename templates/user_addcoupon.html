@@ -1,0 +1,36 @@
+{% include 'user_header.html'%}
+<br>	<br>	
+<center>
+	<h1  style="color: white">Coupon</h1>
+	<form method="post"  style="color: white;width: 500px">
+		<table>
+			<tr>
+				<th style="padding: 20px">Coupon</th>
+				<td><input type="text" name="co" class="form-control" required=""></td>
+			</tr>
+				<tr>
+				<th style="padding: 20px">Details</th>
+				<td><input type="text" name="d" class="form-control" required=""></td>
+			</tr>
+			<tr>
+				<td style="text-align: center;" colspan="2"><input type="submit" name="sub" class="btn btn-success"></td>
+			</tr>
+		</table>
+	</form>
+	<br><br>
+	<table width="400px">
+		<tr>
+			<th>Coupon</th>
+			<th>Details</th>
+		</tr>
+		{%for i in data['view']%}
+		<tr>
+			<td>{{i['coupons']}}</td>
+			<td>{{i['details']}}</td>
+			<td><a class="btn btn-success" href="viewcoupon_request?cid={{i['coupons_id']}}">Request</a></td>
+		</tr>
+		{%endfor%}
+	</table>
+</center>
+
+{% include 'footer.html'%}

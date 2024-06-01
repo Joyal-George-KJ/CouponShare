@@ -1,0 +1,18 @@
+{%include 'user_header.html'%}
+<center>
+	<table width="400px">
+		<tr>
+			<th>Coupon</th>
+			<th>Details</th>
+		</tr>
+		{%for i in data['view']%}
+		<tr>
+			<td>{{i['coupons']}}</td>
+			<td>{{i['details']}}</td>
+			<td><a href="?action=user_buy&cid={{i['coupons_id']}}&uid={{i['user_id']}}">Buy</a></td>
+		</tr>
+		{%endfor%}
+	</table>
+</center>
+
+{% include 'footer.html'%}

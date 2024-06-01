@@ -1,0 +1,35 @@
+{% include 'admin_header.html'%}
+
+<center>
+
+   
+
+
+<br>	<br>	<br>	
+<center>
+<h1  style="color: white">Complaints</h1>
+
+	<table class="table"  style="color: white;width: 500px">
+		<tr>
+			<th>User Name</th>
+			<th>Complaints</th>
+			<th>Reply</th>
+			<th>Date</th>
+		</tr>
+		{% for i in data['view']%}
+		<tr>
+			<td>{{i['fname']}}</td>
+			<td>{{i['complaint']}}</td>
+			<td>{{i['reply']}}</td>
+			<td>{{i['date']}}</td>
+			{% if i['reply']=='pending'%}
+			<td><a href="admin_send_reply?c_id={{i['complaint_id']}}" class="btn btn-info">Reply</a></td>
+			{% endif%}
+		</tr>
+		{% endfor%}
+	</table>
+</center>
+
+</center>
+
+{% include 'footer.html'%}

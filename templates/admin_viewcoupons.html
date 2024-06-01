@@ -1,0 +1,28 @@
+{% include 'admin_header.html' %}
+<center>
+<h1  style="color: white"> View Coupons</h1>
+
+	<table class="table"   style="width:500px ;color: white">
+		<tr>
+			<th>Coupons Name</th>
+			<th>details</th>
+			<th>Date</th>
+			<th>Status</th>
+			
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['coupons']}}</td>
+			<td>{{i['details']}}</td>
+			<td>{{i['date']}}</td>
+			<td>{{i['status']}}</td>
+			
+			
+			
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+
+</center>
+{% include 'footer.html' %}

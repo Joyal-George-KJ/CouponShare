@@ -1,0 +1,75 @@
+{% include 'staff_header.html' %}
+<center>
+<h1  style="color: white">Manage coupons</h1>
+{% if data['up'] %}
+<form method="post">
+	<table  style="width:500px ;color: white">
+		<tr>
+			<th>coupons</th>
+			<td><input type="text" name="classs" class="form-control" required=""  value="{{data['up'][0]['coupons']}}"></td>
+		</tr>
+		<tr>
+			<th>details</th>
+			<td><input type="text" name="date" class="form-control" required=""  value="{{data['up'][0]['details']}}"></td>
+		</tr>
+		
+	
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="update" value="update" class="btn btn-success"></td>
+		</tr>
+	</table>
+</form>
+{% else %}
+<form method="post">
+	<table style="width:500px ;color: white">
+		<tr>
+			<th>coupons</th>
+			<td><input type="text" name="classs" class="form-control" required="" ></td>
+		</tr>
+		<tr>
+			<th>details</th>
+			<td><input type="text" name="date" class="form-control" required=""  ></td>
+		</tr>
+		
+		-
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="es" value="submit" class="btn btn-primary"></td>
+		</tr>
+	</table>
+
+	{% endif %}
+
+</form>
+</center>
+</div>
+	<h1  style="color: white"> View Coupons</h1>
+
+	<table class="table"   style="width:500px ;color: black">
+		<tr>
+			<th>Coupons Name</th>
+			<th>details</th>
+			<!-- <th>Date</th>
+			<th>Status</th> -->
+			
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['coupons']}}</td>
+			<td>{{i['details']}}</td>
+			<!-- <td>{{i['date']}}</td>
+			<td>{{i['status']}}</td> -->
+			<td><a class="btn btn-success" href="?action=update&eid={{i['coupons_id']}}">Update</a></td>
+			<td><a class="btn btn-success" href="?action=delete&eid={{i['coupons_id']}}">Delete</a></td>
+			
+			
+			
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+			
+			
+		
+
+
+{% include 'footer.html' %}

@@ -1,0 +1,31 @@
+{% include 'user_header.html' %}
+<center>
+<h1  style="color: white">View Class</h1>
+
+	<table class="table"  style=";color: white;width: 500px">
+		<tr>
+			<th>Class</th>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Link</th>
+			
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['class']}}</td>
+			<td>{{i['date']}}</td>
+			<td>{{i['time']}}</td>
+			<td>{{i['link']}}</td>
+
+						<td><a  class="btn btn-success" href="Loadcamera?cid={{i['class_id']}}">Load camera</a></td>
+						<td><a  class="btn btn-success" href="detect?cid={{i['class_id']}}">Detect engagement </a></td>
+			
+			<td><a  class="btn btn-success" href="user_viewstudenteng?cid={{i['class_id']}}">View User Engaged</a></td>
+			<td><a  class="btn btn-success" href="user_viewstaffeng?cid={{i['class_id']}}">View Staff Engaged</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+
+</center>
+{% include 'footer.html' %}

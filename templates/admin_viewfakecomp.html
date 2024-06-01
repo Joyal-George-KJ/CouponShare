@@ -1,0 +1,27 @@
+{% include 'admin_header.html' %}
+<center>
+<h1 style="color: white">View fake Complaint</h1>
+
+	<table class="table"  style="color: white">
+			<tr>
+			<th>Details</th>
+			<th>Complaints</th>
+			
+			<th>Date</th>
+		</tr>
+		{% for i in data['view']%}
+		<tr>
+			<td>{{i['details']}}</td>
+			<td>{{i['complaint']}}</td>
+			
+			<td>{{i['date']}}</td>
+			
+			<td><a href="admin_prousers?uid={{i['user_id']}}">view user</a></td>
+			
+		</tr>
+		{% endfor%}
+	</table>
+</form>
+
+</center>
+{% include 'footer.html' %}

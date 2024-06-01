@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/images"
+    android:orientation="vertical"
+    tools:context=".Ipsettings">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Ipsettings"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+
+        android:textSize="25dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="261dp" />
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/ipaddress"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="enter ip address"-->
+    <!--        android:inputType="textPersonName"-->
+    <!--        android:textColor="#121010"-->
+    <!--        tools:layout_editor_absoluteX="119dp"-->
+    <!--        tools:layout_editor_absoluteY="312dp" />-->
+    <EditText
+        android:id="@+id/ipaddress"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="24dp"
+        android:hint="Username"
+        android:paddingLeft="60dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+
+        android:textSize="40px"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+
+    <Button
+        android:id="@+id/ipbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Start"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="418dp" />
+
+</LinearLayout>

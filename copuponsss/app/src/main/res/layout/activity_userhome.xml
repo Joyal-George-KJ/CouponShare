@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:background="@drawable/images"
+    android:layout_height="match_parent"
+    tools:context=".userhome">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_row="5"
+        android:layout_column="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="163dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="10dp"
+                    android:text=" Coupon shairing !"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <!--        <ImageView-->
+                <!--            android:id="@+id/imageView1"-->
+                <!--            android:layout_width="50dp"-->
+                <!--            android:layout_height="50dp"-->
+                <!--            android:layout_marginLeft="130dp"-->
+                <!--            android:layout_marginTop="26dp"-->
+                <!--            app:srcCompat="@drawable/pro" />-->
+
+                <!--        <TextView-->
+                <!--            android:id="@+id/notif"-->
+                <!--            android:layout_width="20dp"-->
+                <!--            android:layout_height="20dp"-->
+                <!--            android:layout_marginTop="50dp"-->
+                <!--            android:background="@drawable/circle"-->
+                <!--            android:gravity="center"-->
+                <!--            android:text="2"-->
+                <!--            android:textColor="@color/white"-->
+                <!--            android:textSize="15dp"-->
+                <!--            android:textStyle="bold" />-->
+
+            </TableRow>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="10dp"
+                >
+
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnCount="2"
+                    android:rowCount="7">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv1"
+                        android:layout_width="15dp"
+                        android:layout_height="130dp"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:layout_columnWeight="1"
+                        app:cardCornerRadius="30dp"
+                        android:layout_gravity="fill"
+                        android:layout_margin="10dp"
+                        app:cardBackgroundColor="@color/white"
+
+                        app:cardElevation="50dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/viewclass"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:background="@drawable/my"
+
+                                />
+
+                            <TextView
+
+                                android:id="@+id/viewclass1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+
+                                android:text="Add my coupons"
+                                android:textAlignment="center"
+
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv3"
+                        android:layout_width="20dp"
+                        android:layout_height="130dp"
+                        android:layout_row="0"
+                        app:cardCornerRadius="30dp"
+                        android:layout_rowWeight="0"
+                        android:layout_column="1"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:layout_margin="10dp"
+                        app:cardBackgroundColor="@color/white"
+
+                        app:cardElevation="50dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical|center_horizontal"
+
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/viewevent"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:background="@drawable/other"
+
+                               />
+
+                            <TextView
+                                android:id="@+id/ep"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="other coupons "
+                                android:textAlignment="center"
+
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!--                    <androidx.cardview.widget.CardView-->
+                    <!--                        android:id="@+id/cv2"-->
+                    <!--                        android:layout_width="20dp"-->
+                    <!--                        android:layout_height="130dp"-->
+                    <!--                        android:layout_row="2"-->
+                    <!--                        android:layout_rowWeight="1"-->
+                    <!--                        android:layout_column="0"-->
+                    <!--                        app:cardCornerRadius="30dp"-->
+                    <!--                        android:layout_columnWeight="1"-->
+                    <!--                        android:layout_gravity="fill"-->
+                    <!--                        android:layout_margin="10dp"-->
+                    <!--                        app:cardBackgroundColor="@color/white"-->
+
+                    <!--                        app:cardElevation="50dp">-->
+
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="wrap_content"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:layout_gravity="center_vertical|center_horizontal"-->
+
+                    <!--                            android:gravity="center"-->
+
+                    <!--                            android:orientation="vertical">-->
+
+                    <!--                            <ImageView-->
+                    <!--                                android:id="@+id/Viewrechargerequests"-->
+                    <!--                                android:layout_width="70dp"-->
+                    <!--                                android:layout_height="70dp"-->
+
+                    <!--                                android:src="@drawable/req" />-->
+
+                    <!--                            <TextView-->
+                    <!--                                android:id="@+id/sa"-->
+                    <!--                                android:layout_width="wrap_content"-->
+                    <!--                                android:layout_height="wrap_content"-->
+                    <!--                                android:layout_marginTop="10dp"-->
+                    <!--                                android:text="Recharge Requests"-->
+
+
+                    <!--                                android:textAlignment="center"-->
+
+                    <!--                                android:textStyle="bold" />-->
+                    <!--                        </LinearLayout>-->
+                    <!--                    </androidx.cardview.widget.CardView>-->
+
+
+                    <!--                    <androidx.cardview.widget.CardView-->
+                    <!--                        android:id="@+id/cv4"-->
+                    <!--                        android:layout_width="10dp"-->
+                    <!--                        android:layout_height="130dp"-->
+                    <!--                        android:layout_row="1"-->
+                    <!--                        android:layout_rowWeight="1"-->
+                    <!--                        android:layout_column="1"-->
+                    <!--                        android:layout_columnWeight="1"-->
+                    <!--                        android:layout_gravity="fill"-->
+                    <!--                        android:layout_margin="10dp"-->
+                    <!--                        app:cardBackgroundColor="@color/white"-->
+                    <!--                        app:cardCornerRadius="30dp"-->
+                    <!--                        app:cardElevation="50dp">-->
+
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="match_parent"-->
+                    <!--                            android:layout_gravity="center_vertical|center_horizontal"-->
+
+                    <!--                            android:gravity="center"-->
+                    <!--                            android:orientation="vertical">-->
+
+                    <!--                            <ImageView-->
+                    <!--                                android:id="@+id/searchnearbunk"-->
+                    <!--                                android:layout_width="70dp"-->
+                    <!--                                android:layout_height="70dp"-->
+
+                    <!--                                android:src="@drawable/bunk" />-->
+
+                    <!--                            <TextView-->
+                    <!--                                android:id="@+id/h"-->
+                    <!--                                android:layout_width="wrap_content"-->
+                    <!--                                android:layout_height="wrap_content"-->
+                    <!--                                android:layout_marginTop="10dp"-->
+                    <!--                                android:text="Nearest Bunk"-->
+
+                    <!--                                android:textAlignment="center"-->
+
+                    <!--                                android:textStyle="bold" />-->
+                    <!--                        </LinearLayout>-->
+                    <!--                    </androidx.cardview.widget.CardView>-->
+
+                    <!--                    <androidx.cardview.widget.CardView-->
+                    <!--                        android:id="@+id/cv5"-->
+                    <!--                        android:layout_width="20dp"-->
+                    <!--                        android:layout_height="100dp"-->
+                    <!--                        android:layout_row="1"-->
+                    <!--                        android:layout_rowWeight="1"-->
+                    <!--                        android:layout_column="0"-->
+                    <!--                        android:layout_columnWeight="1"-->
+                    <!--                        android:layout_gravity="fill"-->
+                    <!--                        android:layout_margin="10dp"-->
+                    <!--                        app:cardBackgroundColor="@color/white"-->
+                    <!--                        app:cardCornerRadius="30dp"-->
+                    <!--                        app:cardElevation="50dp">-->
+
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="210dp"-->
+
+                    <!--                            android:layout_gravity="center_vertical|center_horizontal"-->
+
+                    <!--                            android:gravity="center"-->
+
+                    <!--                            android:orientation="vertical">-->
+
+                    <!--                            <ImageView-->
+                    <!--                                android:id="@+id/viewbookings"-->
+                    <!--                                android:layout_width="70dp"-->
+                    <!--                                android:layout_height="70dp"-->
+
+                    <!--                                android:src="@drawable/booking" />-->
+
+                    <!--                            <TextView-->
+                    <!--                                android:id="@+id/gt"-->
+                    <!--                                android:layout_width="wrap_content"-->
+                    <!--                                android:layout_height="wrap_content"-->
+                    <!--                                android:layout_marginTop="10dp"-->
+                    <!--                                android:text="View Bookings"-->
+                    <!--                                android:textAlignment="center"-->
+
+                    <!--                                android:textStyle="bold" />-->
+                    <!--                        </LinearLayout>-->
+                    <!--                    </androidx.cardview.widget.CardView>-->
+                    <!--                    <androidx.cardview.widget.CardView-->
+                    <!--                        android:id="@+id/cv6"-->
+                    <!--                        android:layout_width="10dp"-->
+                    <!--                        android:layout_height="130dp"-->
+                    <!--                        android:layout_row="2"-->
+                    <!--                        android:layout_rowWeight="1"-->
+                    <!--                        android:layout_column="1"-->
+                    <!--                        android:layout_columnWeight="1"-->
+                    <!--                        android:layout_gravity="fill"-->
+                    <!--                        android:layout_margin="10dp"-->
+                    <!--                        app:cardBackgroundColor="@color/white"-->
+                    <!--                        app:cardCornerRadius="30dp"-->
+                    <!--                        app:cardElevation="50dp">-->
+
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="match_parent"-->
+                    <!--                            android:layout_gravity="center_vertical|center_horizontal"-->
+
+                    <!--                            android:gravity="center"-->
+                    <!--                            android:orientation="vertical">-->
+
+                    <!--                            <ImageView-->
+                    <!--                                android:id="@+id/searchmechanic"-->
+                    <!--                                android:layout_width="70dp"-->
+                    <!--                                android:layout_height="81dp"-->
+
+                    <!--                                android:src="@drawable/mech" />-->
+
+                    <!--                            <TextView-->
+                    <!--                                android:id="@+id/t"-->
+                    <!--                                android:layout_width="wrap_content"-->
+                    <!--                                android:layout_height="wrap_content"-->
+                    <!--                                android:layout_marginTop="10dp"-->
+                    <!--                                android:text="Mechanic"-->
+
+                    <!--                                android:textAlignment="center"-->
+
+                    <!--                                android:textStyle="bold" />-->
+                    <!--                        </LinearLayout>-->
+                    <!--                    </androidx.cardview.widget.CardView>-->
+
+                    <!--                    <androidx.cardview.widget.CardView-->
+                    <!--                        android:id="@+id/cv7"-->
+                    <!--                        android:layout_width="10dp"-->
+                    <!--                        android:layout_height="130dp"-->
+                    <!--                        android:layout_row="3"-->
+                    <!--                        android:layout_rowWeight="1"-->
+                    <!--                        android:layout_column="0"-->
+                    <!--                        android:layout_columnWeight="1"-->
+                    <!--                        android:layout_gravity="fill"-->
+                    <!--                        android:layout_margin="10dp"-->
+                    <!--                        app:cardBackgroundColor="@color/white"-->
+                    <!--                        app:cardCornerRadius="30dp"-->
+                    <!--                        app:cardElevation="50dp">-->
+
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="match_parent"-->
+                    <!--                            android:layout_gravity="center_vertical|center_horizontal"-->
+
+                    <!--                            android:gravity="center"-->
+                    <!--                            android:orientation="vertical">-->
+
+                    <!--                            <ImageView-->
+                    <!--                                android:id="@+id/viewrequest"-->
+                    <!--                                android:layout_width="70dp"-->
+                    <!--                                android:layout_height="70dp"-->
+                    <!--                                android:src="@drawable/request" />-->
+
+                    <!--                            <TextView-->
+                    <!--                                android:id="@+id/s"-->
+                    <!--                                android:layout_width="wrap_content"-->
+                    <!--                                android:layout_height="wrap_content"-->
+                    <!--                                android:layout_marginTop="10dp"-->
+                    <!--                                android:text="View Requests"-->
+                    <!--                                android:textAlignment="center"-->
+
+                    <!--                                android:textStyle="bold" />-->
+                    <!--                        </LinearLayout>-->
+
+                    <!--                    </androidx.cardview.widget.CardView>-->
+                    <!--                    <androidx.cardview.widget.CardView-->
+                    <!--                        android:id="@+id/cv8"-->
+                    <!--                        android:layout_width="10dp"-->
+                    <!--                        android:layout_height="130dp"-->
+                    <!--                        android:layout_row="3"-->
+                    <!--                        android:layout_rowWeight="1"-->
+                    <!--                        android:layout_column="1"-->
+                    <!--                        android:layout_columnWeight="1"-->
+                    <!--                        android:layout_gravity="fill"-->
+                    <!--                        android:layout_margin="10dp"-->
+                    <!--                        app:cardBackgroundColor="@color/white"-->
+                    <!--                        app:cardCornerRadius="30dp"-->
+                    <!--                        app:cardElevation="50dp">-->
+
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="match_parent"-->
+                    <!--                            android:layout_gravity="center_vertical|center_horizontal"-->
+
+                    <!--                            android:gravity="center"-->
+                    <!--                            android:orientation="vertical">-->
+
+                    <!--                            <ImageView-->
+                    <!--                                android:id="@+id/searchspareparts"-->
+                    <!--                                android:layout_width="70dp"-->
+                    <!--                                android:layout_height="70dp"-->
+
+
+                    <!--                                android:src="@drawable/spare" />-->
+
+                    <!--                            <TextView-->
+                    <!--                                android:id="@+id/lt"-->
+                    <!--                                android:layout_width="wrap_content"-->
+                    <!--                                android:layout_height="wrap_content"-->
+                    <!--                                android:layout_marginTop="10dp"-->
+                    <!--                                android:text="Spareparts"-->
+                    <!--                                android:textAlignment="center"-->
+
+                    <!--                                android:textStyle="bold" />-->
+                    <!--                        </LinearLayout>-->
+
+                    <!--                    </androidx.cardview.widget.CardView>-->
+                    <!--                    <androidx.cardview.widget.CardView-->
+                    <!--                        android:id="@+id/cv67"-->
+                    <!--                        android:layout_width="10dp"-->
+                    <!--                        android:layout_height="130dp"-->
+                    <!--                        android:layout_row="4"-->
+                    <!--                        android:layout_rowWeight="1"-->
+                    <!--                        android:layout_column="1"-->
+                    <!--                        android:layout_columnWeight="1"-->
+                    <!--                        android:layout_gravity="fill"-->
+                    <!--                        android:layout_margin="10dp"-->
+                    <!--                        app:cardBackgroundColor="@color/white"-->
+                    <!--                        app:cardCornerRadius="30dp"-->
+                    <!--                        app:cardElevation="50dp">-->
+
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="match_parent"-->
+                    <!--                            android:layout_gravity="center_vertical|center_horizontal"-->
+
+                    <!--                            android:gravity="center"-->
+                    <!--                            android:orientation="vertical">-->
+
+                    <!--                            <ImageView-->
+                    <!--                                android:id="@+id/viewmyordered"-->
+                    <!--                                android:layout_width="70dp"-->
+                    <!--                                android:layout_height="70dp"-->
+
+
+                    <!--                                android:src="@drawable/mine" />-->
+
+                    <!--                            <TextView-->
+                    <!--                                android:id="@+id/ltas"-->
+                    <!--                                android:layout_width="wrap_content"-->
+                    <!--                                android:layout_height="wrap_content"-->
+                    <!--                                android:layout_marginTop="10dp"-->
+                    <!--                                android:text="My Orders"-->
+                    <!--                                android:textAlignment="center"-->
+
+                    <!--                                android:textStyle="bold" />-->
+                    <!--                        </LinearLayout>-->
+
+                    <!--                    </androidx.cardview.widget.CardView>-->
+                    <!--                    <androidx.cardview.widget.CardView-->
+                    <!--                        android:id="@+id/cv76"-->
+                    <!--                        android:layout_width="10dp"-->
+                    <!--                        android:layout_height="130dp"-->
+                    <!--                        android:layout_row="4"-->
+                    <!--                        android:layout_rowWeight="1"-->
+                    <!--                        android:layout_column="0"-->
+                    <!--                        android:layout_columnWeight="1"-->
+                    <!--                        android:layout_gravity="fill"-->
+                    <!--                        android:layout_margin="10dp"-->
+                    <!--                        app:cardBackgroundColor="@color/white"-->
+                    <!--                        app:cardCornerRadius="30dp"-->
+                    <!--                        app:cardElevation="50dp">-->
+
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="match_parent"-->
+                    <!--                            android:layout_gravity="center_vertical|center_horizontal"-->
+
+                    <!--                            android:gravity="center"-->
+                    <!--                            android:orientation="vertical">-->
+
+                    <!--                            <ImageView-->
+                    <!--                                android:id="@+id/viewordereditems"-->
+                    <!--                                android:layout_width="70dp"-->
+                    <!--                                android:layout_height="70dp"-->
+
+
+                    <!--                                android:src="@drawable/orders" />-->
+
+                    <!--                            <TextView-->
+                    <!--                                android:id="@+id/lts"-->
+                    <!--                                android:layout_width="wrap_content"-->
+                    <!--                                android:layout_height="wrap_content"-->
+                    <!--                                android:layout_marginTop="10dp"-->
+                    <!--                                android:text="Orders"-->
+                    <!--                                android:textAlignment="center"-->
+
+                    <!--                                android:textStyle="bold" />-->
+                    <!--                        </LinearLayout>-->
+
+                    <!--                    </androidx.cardview.widget.CardView>-->
+                    <!--                    <androidx.cardview.widget.CardView-->
+                    <!--                        android:id="@+id/cv76bw"-->
+                    <!--                        android:layout_width="10dp"-->
+                    <!--                        android:layout_height="130dp"-->
+                    <!--                        android:layout_row="5"-->
+                    <!--                        android:layout_rowWeight="1"-->
+                    <!--                        android:layout_column="0"-->
+                    <!--                        android:layout_columnWeight="1"-->
+                    <!--                        android:layout_gravity="fill"-->
+                    <!--                        android:layout_margin="10dp"-->
+                    <!--                        app:cardBackgroundColor="@color/white"-->
+                    <!--                        app:cardCornerRadius="30dp"-->
+                    <!--                        app:cardElevation="50dp">-->
+
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="match_parent"-->
+                    <!--                            android:layout_gravity="center_vertical|center_horizontal"-->
+
+                    <!--                            android:gravity="center"-->
+                    <!--                            android:orientation="vertical">-->
+
+                    <!--                            <ImageView-->
+                    <!--                                android:id="@+id/addblog"-->
+                    <!--                                android:layout_width="70dp"-->
+                    <!--                                android:layout_height="70dp"-->
+
+
+                    <!--                                android:src="@drawable/addblog" />-->
+
+                    <!--                            <TextView-->
+                    <!--                                android:id="@+id/ltsasq"-->
+                    <!--                                android:layout_width="wrap_content"-->
+                    <!--                                android:layout_height="wrap_content"-->
+                    <!--                                android:layout_marginTop="10dp"-->
+                    <!--                                android:text="Add Blog"-->
+                    <!--                                android:textAlignment="center"-->
+
+                    <!--                                android:textStyle="bold" />-->
+                    <!--                        </LinearLayout>-->
+
+                    <!--                    </androidx.cardview.widget.CardView>-->
+
+                                        <androidx.cardview.widget.CardView
+                                            android:id="@+id/dss"
+                                            android:layout_width="10dp"
+                                            android:layout_height="130dp"
+                                            android:layout_row="5"
+                                            android:layout_rowWeight="1"
+                                            android:layout_column="1"
+                                            android:layout_columnWeight="1"
+                                            android:layout_gravity="fill"
+                                            android:layout_margin="10dp"
+                                            app:cardBackgroundColor="@color/white"
+                                            app:cardCornerRadius="30dp"
+                                            app:cardElevation="50dp">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_gravity="center_vertical|center_horizontal"
+
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <ImageView
+                                                    android:id="@+id/viewblog"
+                                                    android:layout_width="70dp"
+                                                    android:layout_height="70dp"
+                                                    android:background="@drawable/request"
+
+
+                                                    />
+
+                                                <TextView
+                                                    android:id="@+id/hai"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="10dp"
+                                                    android:text="View Request"
+                                                    android:textAlignment="center"
+
+                                                    android:textStyle="bold" />
+                                            </LinearLayout>
+
+                                        </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv76w"
+                        android:layout_width="10dp"
+                        android:layout_height="130dp"
+                        android:layout_row="6"
+                        android:layout_rowWeight="1"
+                        android:layout_column="0"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:layout_margin="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="50dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical|center_horizontal"
+
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/sendcomplaints"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:background="@drawable/comp"
+
+
+                                />
+
+                            <TextView
+                                android:id="@+id/ltsass"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Send Complaints"
+                                android:textAlignment="center"
+
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv76m"
+                        android:layout_width="10dp"
+                        android:layout_height="130dp"
+                        android:layout_row="6"
+                        android:layout_rowWeight="1"
+                        android:layout_column="1"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:layout_margin="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="30dp"
+                        app:cardElevation="50dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical|center_horizontal"
+
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/logout"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:background="@drawable/logout"
+
+
+                                />
+
+                            <TextView
+                                android:id="@+id/ltsas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Logout"
+                                android:textAlignment="center"
+
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </GridLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

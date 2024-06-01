@@ -1,0 +1,21 @@
+{% include 'public_header.html' %}
+<center>
+<h1 style="color: white">Login</h1>
+<form method="post">
+	<table class="table" style="width:500px ;color: white">
+		<tr>
+			<th>Username</th>
+			<td><input type="text" class="form-control" required="" name="uname"></td>
+		</tr>
+		<tr>
+			<th>Password</th>
+			<td><input type="password" name="passw" class="form-control" required="" ></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="ls" value="submit" class="btn btn-primary"></td>
+		</tr>
+	</table>
+</form>
+</center>
+
+{%include  'footer.html' %}
