@@ -29,6 +29,7 @@ def login():
 	if 'ls' in request.form:
 		uname=request.form['uname']
 		passw=request.form['passw']
+		print(uname,passw)
 		q="select * from login where username='%s' and password='%s'"%(uname,passw)
 		val=select(q)
 		if val:

@@ -2,7 +2,7 @@ import mysql.connector
 
 user="root"
 password=""
-database="couponshare"
+database="couponsharing"
 
 
 def select(q):
