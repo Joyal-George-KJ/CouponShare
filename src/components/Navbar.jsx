@@ -52,12 +52,6 @@ const Navbar = () => {
                     >
                         Login
                     </NavLink>
-                    <NavLink
-                        to="/register"
-                        className="px-5 py-2 rounded-lg bg-gradient-to-r from-green-500 to-green-700 text-white font-semibold transition-transform hover:scale-105"
-                    >
-                        Sign Up
-                    </NavLink>
                 </div>
 
                 {/* Mobile Menu Toggle */}
