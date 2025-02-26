@@ -9,7 +9,7 @@ const Navbar = () => {
 
     return (
         <nav className="sticky top-0 left-0 w-full bg-opacity-50 backdrop-blur-md shadow-lg z-50">
-            <div className="flex justify-between items-center p-4">
+            <div className="flex justify-between items-center p-4 mobile:px-4 tablet:px-8 laptop:px-16">
                 {/* Logo */}
                 <NavLink
                     to="/"
@@ -19,7 +19,7 @@ const Navbar = () => {
                 </NavLink>
 
                 {/* Desktop Menu */}
-                <ul className="hidden md:flex gap-8">
+                <ul className="hidden desktop:flex gap-8">
                     {[
                         "stores",
                         "categories",
@@ -45,10 +45,10 @@ const Navbar = () => {
                 </ul>
 
                 {/* Auth Buttons */}
-                <div className="hidden md:flex gap-4">
+                <div className="hidden desktop:flex gap-4">
                     <NavLink
                         to="/login"
-                        className="px-5 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold transition-transform hover:scale-105"
+                        className="px-5 py-2 rounded-lg bg-neutral-800 shadow shadow-neutral-200 text-white font-semibold transition-transform hover:scale-105"
                     >
                         Login
                     </NavLink>
@@ -61,7 +61,10 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Menu Toggle */}
-                <button onClick={toggleMenu} className="md:hidden text-white">
+                <button
+                    onClick={toggleMenu}
+                    className="desktop:hidden text-white"
+                >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
             </div>
@@ -71,7 +74,7 @@ const Navbar = () => {
                 <div
                     className={`fixed top-0 right-0 h-full w-64 bg-neutral-800 bg-opacity-90 backdrop-blur-md p-6 transform ${
                         isOpen ? "" : "translate-x-full"
-                    } transition-transform duration-300 ease-in-out md:hidden`}
+                    } transition-transform duration-300 ease-in-out desktop:hidden`}
                 >
                     <button
                         onClick={toggleMenu}
