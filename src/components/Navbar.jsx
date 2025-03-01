@@ -66,7 +66,7 @@ const Navbar = () => {
             {/* Mobile Menu */}
             {isOpen && (
                 <div
-                    className={`fixed top-0 right-0 h-full w-64 bg-neutral-800 bg-opacity-90 backdrop-blur-md p-6 transform ${
+                    className={`fixed top-0 right-0 h-fit w-64 bg-neutral-800 bg-opacity-90 backdrop-blur-md p-6 transform ${
                         isOpen ? "" : "translate-x-full"
                     } transition-transform duration-300 ease-in-out desktop:hidden`}
                 >
