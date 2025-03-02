@@ -6,4 +6,18 @@
     --breakpoint-laptop: 769px;
     --breakpoint-desktop: 1025px;
     --breakpoint-tv: 1201px;
+
+    --animate-slide-in: slide-in 0.3s ease-in-out;
+
+    @keyframes slide-in {
+        0% {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+    }
 }
