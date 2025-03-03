@@ -38,7 +38,7 @@ function CouponCard({ tags, title, description, expiryDate, code }) {
             </button>
             {
                 toggleCode && (
-                    <div className="text-green-300 text-center bg-transparent py-2 px-4 rounded font-medium cursor-default select-none capitalize border-2 border-green-300 fixed bottom-6 right-6 animate-slide-in">
+                    <div className="text-green-300 text-center bg-neutral-800 py-2 px-4 rounded font-medium cursor-default select-none capitalize border-2 border-green-300 fixed bottom-6 right-6 animate-slide-in">
                         Code Copied to Clipboard
                     </div>)
             }
