@@ -11,7 +11,7 @@ function CouponCard({ tags, title, description, expiryDate, code }) {
     };
 
     return (
-        <div className="flex flex-col gap-2 p-4 bg-neutral-800 rounded-lg shadow shadow-neutral-200 w-full">
+        <div className="flex flex-col gap-2 p-4 bg-neutral-800 rounded-lg shadow shadow-neutral-700 w-full hover:scale-105 hover:bg-neutral-700">
             <div className="flex flex-row flex-wrap gap-2">
                 {tags.map((val, ind) => (
                     <span
