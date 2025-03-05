@@ -1,7 +1,14 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
+import AppwriteConfig from "../constants/AppwriteConf";
 
-function GoogleAuth({ text, onClick }) {
+function GoogleAuth({ text }) {
+    
+    const onClick = async () => {
+        const loginConfig = new AppwriteConfig('https://cloud.appwrite.io/v1', '67c6a635003603605fbc');
+        loginConfig.login();
+    }
+
     return (
         <button
         type="button"
