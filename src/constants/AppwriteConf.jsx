@@ -7,11 +7,16 @@ class AppwriteConfig {
     }
 
     async login() {
-        const redirectURL = "http://localhost:5173" // window.location.origin; // Dynamically set the redirect URI
-        const currentSession = await this.account.getSession('current');
-        if (!currentSession) {
-            return this.account.createOAuth2Session(OAuthProvider.Google, redirectURL, `${redirectURL}/login`);
-        } else {
+        try {
+            const user = await this.account.get(); // Check if user is already logged in
+            console.log("User already logged in:", user);
+        } catch (error) {
+            // User is not logged in, so initiate Google login
+            const redirectURL = window.location.origin; // Automatically detect current domain
+            this.account.createOAuth2Session(OAuthProvider.Google, redirectURL, `${redirectURL}/login`);
+        }
+    }
+
             console.log(currentSession);
             window.alert("You are already logged in");
             return true;
