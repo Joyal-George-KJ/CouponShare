@@ -1,9 +1,33 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import AppwriteConfig from "../constants/AppwriteConf";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isLogged, setIsLogged] = useState(false); // Start with false
+    const Auth = new AppwriteConfig(
+        "https://cloud.appwrite.io/v1",
+        "67c6a635003603605fbc"
+    );
+
+    // Check login status when component mounts
+    useEffect(() => {
+        const checkAuth = async () => {
+            try {
+                await Auth.account.get();
+                setIsLogged(true);
+            } catch {
+                setIsLogged(false);
+            }
+        };
+        checkAuth();
+    }, []);
+
+    const handleLogout = async () => {
+        await Auth.logout();
+        setIsLogged(false); // Update state after logout
+    };
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
