@@ -16,13 +16,15 @@ class AppwriteConfig {
             this.account.createOAuth2Session(OAuthProvider.Google, redirectURL, `${redirectURL}/login`);
         }
     }
-
-            console.log(currentSession);
-            window.alert("You are already logged in");
-            return true;
+    
+    async logout() {
+        try {
+            await this.account.deleteSession("current");
+            window.location.reload(); // Refresh page after logout
+        } catch (error) {
+            console.error("Logout failed:", error);
         }
     }
-    
 }
 
 export default AppwriteConfig;
