@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
+import Verify from "./screen/Verify";
 const Home = lazy(() => import("./screen/Home"));
 const About = lazy(() => import("./screen/About"));
 const Stores = lazy(() => import("./screen/Stores"));
@@ -25,6 +26,7 @@ createRoot(document.getElementById("root")).render(
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/settings" element={<Settings />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/verify" element={<Verify />} />
                 </Route>
             </Routes>
         </BrowserRouter>
