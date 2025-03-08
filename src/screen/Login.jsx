@@ -7,6 +7,8 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    const loginConfig = new AppwriteConfig('https://cloud.appwrite.io/v1', '67c6a635003603605fbc');
+    loginConfig.login({ email, password });
     console.log("Logging in with:", { email, password });
   };
 
