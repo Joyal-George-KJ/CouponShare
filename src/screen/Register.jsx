@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GoogleAuth from "../components/GoogleAuth";
+import AppwriteConfig from "../constants/AppwriteConf";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -8,6 +9,8 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
+    const registerConfig = new AppwriteConfig('https://cloud.appwrite.io/v1', '67c6a635003603605fbc');
+    registerConfig.register(email, password, username);
     console.log("Registering with:", { username, email, password });
   };
 
