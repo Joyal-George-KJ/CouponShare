@@ -1,4 +1,4 @@
-import { Client, Account, OAuthProvider } from "appwrite";
+import { Client, Account, OAuthProvider, ID } from "appwrite";
 
 class AppwriteConfig {
     constructor(END_POINT, PROJECT_ID) {
@@ -57,11 +57,20 @@ class AppwriteConfig {
             const user = await this.account.get(); // Check if user is already logged in
             console.log("User already logged in:", user);
         } catch (error) {
-            // User is not logged in, so initiate Google login
-            const redirectURL = window.location.origin; // Automatically detect current domain
-            this.account.createOAuth2Session(OAuthProvider.Google, redirectURL, `${redirectURL}/login`);
+            console.log("No user logged in, proceeding with login...");
+            if(data) {
+                // User is not logged in, so initiate Email Password login
+                this.account.createEmailPasswordSession(data.email, data.password);
+            } else {
+                // User is not logged in, so initiate Google login
+                const redirectURL = window.location.origin; // Automatically detect current domain
+                this.account.createOAuth2Session(OAuthProvider.Google, redirectURL, `${redirectURL}/login`);
+            }
         }
     }
+
+
+    
     
     async logout() {
         try {
