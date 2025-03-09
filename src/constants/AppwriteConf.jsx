@@ -2,7 +2,9 @@ import { Client, Account, OAuthProvider, ID } from "appwrite";
 
 class AppwriteConfig {
     constructor(END_POINT, PROJECT_ID) {
-        this.client = new Client().setEndpoint(END_POINT).setProject(PROJECT_ID);
+        this.client = new Client()
+            .setEndpoint(END_POINT)
+            .setProject(PROJECT_ID);
         this.account = new Account(this.client);
     }
 
@@ -13,21 +15,26 @@ class AppwriteConfig {
             console.log("User already logged in:", user);
         } catch (error) {
             console.log("No user logged in, proceeding with registration...");
-    
+
             try {
                 // Register user
-                const newUser = await this.account.create(ID.unique(), email, password, name);
+                const newUser = await this.account.create(
+                    ID.unique(),
+                    email,
+                    password,
+                    name
+                );
                 console.log("User registered successfully:", newUser);
-    
+
                 // Send verification email
                 await this.login({ email, password });
-                await this.userVerification({email, password});
+                await this.userVerification({ email, password });
             } catch (error) {
                 console.error("Registration failed:", error);
             }
         }
     }
-    
+
     async userVerification(data) {
         try {
             // Check if user is logged in
@@ -36,7 +43,9 @@ class AppwriteConfig {
             try {
                 // Send verification email
                 const redirectURL = window.location.origin + "/verify";
-                const response = await this.account.createVerification(redirectURL);
+                const response = await this.account.createVerification(
+                    redirectURL
+                );
                 console.log("Verification email sent successfully", response);
             } catch (error) {
                 console.error("Verification failed:", error);
@@ -67,13 +76,20 @@ class AppwriteConfig {
             console.log("User already logged in:", user);
         } catch (error) {
             console.log("No user logged in, proceeding with login...");
-            if(data) {
+            if (data) {
                 // User is not logged in, so initiate Email Password login
-                this.account.createEmailPasswordSession(data.email, data.password);
+                this.account.createEmailPasswordSession(
+                    data.email,
+                    data.password
+                );
             } else {
                 // User is not logged in, so initiate Google login
                 const redirectURL = window.location.origin; // Automatically detect current domain
-                this.account.createOAuth2Session(OAuthProvider.Google, redirectURL, `${redirectURL}/login`);
+                this.account.createOAuth2Session(
+                    OAuthProvider.Google,
+                    redirectURL,
+                    `${redirectURL}/login`
+                );
             }
         }
     }
