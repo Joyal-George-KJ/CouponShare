@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import AppwriteConfig from "../constants/AppwriteConf";
 
 const Profile = () => {
     const [editMode, setEditMode] = useState(false);
@@ -15,6 +16,22 @@ const Profile = () => {
     const handleChange = (e) => {
         setProfile({ ...profile, [e.target.name]: e.target.value });
     };
+
+    useEffect(() => {
+      const config = new AppwriteConfig(
+        "https://cloud.appwrite.io/v1",
+        "67c6a635003603605fbc"
+      );
+
+      let res = config.getProfile().then((res) => {
+          res && setProfile({...profile, email: res.email, name: res.name});
+      }).catch((err) => console.error(err));
+
+
+      console.log(res);
+      
+    }, []);
+    
 
     return (
         <div className=" bg-neutral-800 rounded-lg shadow-lg text-white">
