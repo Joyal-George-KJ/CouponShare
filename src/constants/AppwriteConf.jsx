@@ -21,23 +21,18 @@ class AppwriteConfig {
     
                 // Send verification email
                 await this.login({ email, password });
-                await this.userVerification();
+                await this.userVerification({email, password});
             } catch (error) {
                 console.error("Registration failed:", error);
             }
         }
     }
-
-
     
-    async userVerification() {
+    async userVerification(data) {
         try {
             // Check if user is logged in
             const user = await this.account.get();
-            console.log("User already logged in:", user);
-        } catch (error) {
-            console.log("User is not logged in, sending verification email...");
-    
+            console.log("User logged in, sending verification email...", user);
             try {
                 // Send verification email
                 const redirectURL = window.location.origin + "/verify";
@@ -46,11 +41,12 @@ class AppwriteConfig {
             } catch (error) {
                 console.error("Verification failed:", error);
             }
+        } catch (error) {
+            console.log("User is not logged in, trying to login again");
+            await this.login(data);
+            await this.userVerification(data);
         }
     }    
-
-
-
 
     async login(data = null) {
         try {
@@ -69,15 +65,22 @@ class AppwriteConfig {
         }
     }
 
-
-    
-    
     async logout() {
         try {
             await this.account.deleteSession("current");
             window.location.reload(); // Refresh page after logout
         } catch (error) {
             console.error("Logout failed:", error);
+        }
+    }
+
+    async getProfile() {
+        try {
+            const user = await this.account.get();
+            console.log("User profile:", user);
+            return user;
+        } catch (error) {
+            console.error("Failed to get user profile:", error);
         }
     }
 }
