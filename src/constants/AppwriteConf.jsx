@@ -46,7 +46,20 @@ class AppwriteConfig {
             await this.login(data);
             await this.userVerification(data);
         }
-    }    
+    }
+
+    async updateUserVerification({ uid, code }) {
+        try {
+            this.account
+                .updateVerification(uid, code)
+                .then((res) => console.log("Verification Successful: ", res))
+                .catch((err) =>
+                    console.error("Error Occured during verification: ", err)
+            );
+        } catch (error) {
+            console.log("Error Occured during verification: ", error)
+        }
+    }
 
     async login(data = null) {
         try {
