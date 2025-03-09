@@ -35,13 +35,22 @@ const Navbar = () => {
         <nav className="sticky top-0 left-0 w-full bg-opacity-50 backdrop-blur-md shadow-lg z-50">
             <div className="flex justify-between items-center p-4 mobile:px-4 tablet:px-8 laptop:px-16">
                 {/* Logo */}
-                <NavLink to="/" className="text-3xl font-extrabold text-white tracking-wide">
+                <NavLink
+                    to="/"
+                    className="text-3xl font-extrabold text-white tracking-wide"
+                >
                     Coupon<span className="text-blue-500">Share</span>
                 </NavLink>
 
                 {/* Desktop Menu */}
                 <ul className="hidden desktop:flex gap-8">
-                    {["stores", "categories", "about", "profile", "settings"].map((route) => (
+                    {[
+                        "stores",
+                        "categories",
+                        "about",
+                        "profile",
+                        "settings",
+                    ].map((route) => (
                         <li key={route}>
                             <NavLink
                                 to={`/${route}`}
@@ -62,12 +71,19 @@ const Navbar = () => {
                 {/* Auth Buttons */}
                 <div className="hidden desktop:flex gap-4">
                     {isLogged ? (
-                        <button
-                            onClick={handleLogout}
-                            className="w-full bg-red-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-red-600 transition-all"
-                        >
-                            Logout
-                        </button>
+                        <>
+                        <img
+                    src={'profile.avatar'}
+                    alt="Profile"
+                    className="w-12 h-12 rounded-full border-2 border-neutral-500"
+                />
+                            <button
+                                onClick={handleLogout}
+                                className="w-full bg-red-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-red-600 transition-all"
+                            >
+                                Logout
+                            </button>
+                        </>
                     ) : (
                         <NavLink
                             to="/login"
@@ -79,7 +95,10 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Menu Toggle */}
-                <button onClick={toggleMenu} className="desktop:hidden text-white">
+                <button
+                    onClick={toggleMenu}
+                    className="desktop:hidden text-white"
+                >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
             </div>
@@ -87,19 +106,29 @@ const Navbar = () => {
             {/* Mobile Menu */}
             {isOpen && (
                 <div className="fixed top-0 right-0 h-fit w-64 bg-neutral-800 bg-opacity-90 backdrop-blur-md p-6 transition-transform duration-300 ease-in-out desktop:hidden">
-                    <button onClick={toggleMenu} className="absolute top-5 right-5 text-white">
+                    <button
+                        onClick={toggleMenu}
+                        className="absolute top-5 right-5 text-white"
+                    >
                         <X size={28} />
                     </button>
 
                     <ul className="mt-16 flex flex-col gap-6">
-                        {["stores", "categories", "about", "profile", "settings"].map((route) => (
+                        {[
+                            "stores",
+                            "categories",
+                            "about",
+                            "profile",
+                            "settings",
+                        ].map((route) => (
                             <li key={route}>
                                 <NavLink
                                     to={`/${route}`}
                                     onClick={toggleMenu}
                                     className="text-lg text-white font-semibold transition-transform hover:scale-105 block"
                                 >
-                                    {route.charAt(0).toUpperCase() + route.slice(1)}
+                                    {route.charAt(0).toUpperCase() +
+                                        route.slice(1)}
                                 </NavLink>
                             </li>
                         ))}
@@ -108,12 +137,19 @@ const Navbar = () => {
                     {/* Auth Buttons */}
                     <div className="mt-6 flex flex-col gap-4">
                         {isLogged ? (
-                            <button
-                                onClick={handleLogout}
-                                className="w-full bg-green-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-red-600 transition-all"
-                            >
-                                Logout
-                            </button>
+                            <>
+                                <img
+                                    src={'profile.avatar'}
+                                    alt="Profile"
+                                    className="w-12 h-12 rounded-full border-2 border-neutral-500"
+                                />
+                                <button
+                                    onClick={handleLogout}
+                                    className="w-full bg-green-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-red-600 transition-all"
+                                >
+                                    Logout
+                                </button>
+                            </>
                         ) : (
                             <NavLink
                                 to="/login"
