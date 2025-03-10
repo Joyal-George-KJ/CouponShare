@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GoogleAuth from "../components/GoogleAuth";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -49,9 +50,9 @@ const Login = () => {
 
         <p className="text-center text-neutral-400 mt-4">
           Don't have an account?{" "}
-          <a href="/register" className="text-green-400 hover:underline">
+          <NavLink to={"/register"} className="text-green-400 hover:underline">
             Sign Up
-          </a>
+          </NavLink>
         </p>
       </div>
     </div>
