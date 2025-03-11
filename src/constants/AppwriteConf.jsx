@@ -42,7 +42,7 @@ class AppwriteConfig {
             console.log("User logged in, sending verification email...", user);
             try {
                 // Send verification email
-                const redirectURL = "https://verification.joyalgeorgekj.com/?projectId=" + import.meta.env.VITE_APPWRITE_PROJECT_ID;
+                const redirectURL = "https://verification.joyalgeorgekj.com/?redirect='https://couponshare.joyalgeorgekj.com/'projectId=" + import.meta.env.VITE_APPWRITE_PROJECT_ID;
                 const response = await this.account.createVerification(
                     redirectURL
                 );
