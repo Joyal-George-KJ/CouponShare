@@ -10,7 +10,7 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    const registerConfig = new AppwriteConfig('https://cloud.appwrite.io/v1', '67c6a635003603605fbc');
+    const registerConfig = new AppwriteConfig('https://cloud.appwrite.io/v1', import.meta.env.VITE_APPWRITE_PROJECT_ID);
     registerConfig.register(email, password, username);
     console.log("Registering with:", { username, email, password });
   };

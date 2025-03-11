@@ -8,7 +8,7 @@ const Navbar = () => {
     const [isLogged, setIsLogged] = useState(false); // Start with false
     const Auth = new AppwriteConfig(
         "https://cloud.appwrite.io/v1",
-        "67c6a635003603605fbc"
+        import.meta.env.VITE_APPWRITE_PROJECT_ID
     );
 
     // Check login status when component mounts
