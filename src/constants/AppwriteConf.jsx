@@ -75,7 +75,7 @@ class AppwriteConfig {
                 this.account.createOAuth2Session(
                     OAuthProvider.Google,
                     redirectURL,
-                    `${redirectURL}/login`
+                    `${redirectURL}`
                 );
             }
         }
