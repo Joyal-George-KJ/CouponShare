@@ -18,26 +18,48 @@ const Profile = () => {
     };
 
     useEffect(() => {
-      const config = new AppwriteConfig(
-        "https://cloud.appwrite.io/v1",
-        "67c6a635003603605fbc"
-      );
-
-      let res = config.getProfile().then((res) => {
-          res && setProfile({...profile, email: res.email, name: res.name});
-      }).catch((err) => console.error(err));
-
-
-      console.log(res);
-      
+        const config = new AppwriteConfig(
+            "https://cloud.appwrite.io/v1",
+            import.meta.env.VITE_APPWRITE_PROJECT_ID
+        );
+    
+        async function fetchProfile() {
+            try {
+                // Fetch Appwrite Profile
+                const profileData = await config.getProfile();
+                if (profileData) {
+                    setProfile(prev => ({
+                        ...prev, 
+                        email: profileData.email, 
+                        name: profileData.name
+                    }));
+                }
+    
+                // Fetch Google OAuth Details
+                const userData = await config.getUserDetails();
+                if (userData) {
+                    
+                    setProfile(prev => ({
+                        ...prev, 
+                        ...userData
+                    }));
+                }
+    
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+            }
+        }
+    
+        fetchProfile();
     }, []);
+    
     
 
     return (
         <div className=" bg-neutral-800 rounded-lg shadow-lg text-white">
             <div className="flex items-center gap-4">
                 <img
-                    src={profile.avatar}
+                    src={profile.picture}
                     alt="Profile"
                     className="w-24 h-24 rounded-full border-2 border-neutral-500"
                 />
