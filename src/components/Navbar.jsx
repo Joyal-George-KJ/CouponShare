@@ -18,8 +18,6 @@ const Navbar = () => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                let {picture} = await Auth.getUserDetails();
-                setProfile({avatar: picture});
                 setIsLogged(true);
             } catch {
                 setIsLogged(false);
