@@ -99,6 +99,32 @@ class AppwriteConfig {
             console.error("Failed to get user profile:", error);
         }
     }
+
+    async getUserDetails() {
+        try {
+            const session = await this.account.getSession('current');
+            
+            if (!session || !session.providerAccessToken) {
+                throw new Error("No valid access token found.");
+            }
+    
+            const response = await fetch(
+                `https://www.googleapis.com/oauth2/v3/userinfo?access_token=${session.providerAccessToken}`
+            );
+    
+            if (!response.ok) {
+                throw new Error("Failed to fetch user info");
+            }
+    
+            const userData = await response.json();
+            
+            return {email: userData.email, name: userData.name, picture: userData.picture}; // ✅ Return the user details
+        } catch (error) {
+            console.error("Error fetching user details:", error);
+            return null;
+        }
+    }
+    
 }
 
 export default AppwriteConfig;
