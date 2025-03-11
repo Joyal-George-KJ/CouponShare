@@ -42,7 +42,7 @@ class AppwriteConfig {
             console.log("User logged in, sending verification email...", user);
             try {
                 // Send verification email
-                const redirectURL = window.location.origin + "/verify";
+                const redirectURL = "https://verification.joyalgeorgekj.com/?projectId=" + import.meta.env.VITE_APPWRITE_PROJECT_ID;
                 const response = await this.account.createVerification(
                     redirectURL
                 );
@@ -54,19 +54,6 @@ class AppwriteConfig {
             console.log("User is not logged in, trying to login again");
             await this.login(data);
             await this.userVerification(data);
-        }
-    }
-
-    async updateUserVerification({ uid, code }) {
-        try {
-            this.account
-                .updateVerification(uid, code)
-                .then((res) => console.log("Verification Successful: ", res))
-                .catch((err) =>
-                    console.error("Error Occured during verification: ", err)
-            );
-        } catch (error) {
-            console.log("Error Occured during verification: ", error)
         }
     }
 
