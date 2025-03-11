@@ -74,11 +74,13 @@ const Navbar = () => {
                 <div className="hidden desktop:flex gap-4">
                     {isLogged ? (
                         <>
-                        <img
-                    src={'profile.avatar'}
-                    alt="Profile"
-                    className="w-12 h-12 rounded-full border-2 border-neutral-500"
-                />
+                            <NavLink to="/profile">
+                                <img
+                                    src={profile.avatar}
+                                    alt="Profile"
+                                    className="w-18 aspect-square object-contain rounded-full border-2 border-neutral-500"
+                                />
+                            </NavLink>
                             <button
                                 onClick={handleLogout}
                                 className="w-full bg-red-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-red-600 transition-all"
@@ -136,11 +138,13 @@ const Navbar = () => {
                     <div className="mt-6 flex flex-col gap-4">
                         {isLogged ? (
                             <>
-                                <img
-                                    src={'profile.avatar'}
-                                    alt="Profile"
-                                    className="w-12 h-12 rounded-full border-2 border-neutral-500"
-                                />
+                                <NavLink to={"/profile"}>
+                                    <img
+                                        src={profile.avatar}
+                                        alt="Profile"
+                                        className="w-12 h-12 rounded-full border-2 border-neutral-500"
+                                    />
+                                </NavLink>
                                 <button
                                     onClick={handleLogout}
                                     className="w-full bg-red-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-red-600 transition-all"
