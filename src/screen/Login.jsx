@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GoogleAuth from "../components/GoogleAuth";
 import { NavLink } from "react-router-dom";
+import AppwriteConfig from "../constants/AppwriteConf";
 
 const Login = () => {
   const [email, setEmail] = useState("");
