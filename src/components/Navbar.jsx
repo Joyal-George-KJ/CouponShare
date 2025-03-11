@@ -49,28 +49,25 @@ const Navbar = () => {
 
                 {/* Desktop Menu */}
                 <ul className="hidden desktop:flex gap-8">
-                    {[
-                        "stores",
-                        "categories",
-                        "about",
-                        "profile",
-                        "settings",
-                    ].map((route) => (
-                        <li key={route}>
-                            <NavLink
-                                to={`/${route}`}
-                                className={({ isActive }) =>
-                                    `text-lg font-medium transition duration-300 hover:text-blue-400 ${
-                                        isActive
-                                            ? "text-blue-500 border-b-2 border-blue-500"
-                                            : "text-white"
-                                    }`
-                                }
-                            >
-                                {route.charAt(0).toUpperCase() + route.slice(1)}
-                            </NavLink>
-                        </li>
-                    ))}
+                    {["stores", "categories", "about", "settings"].map(
+                        (route) => (
+                            <li key={route}>
+                                <NavLink
+                                    to={`/${route}`}
+                                    className={({ isActive }) =>
+                                        `text-lg font-medium transition duration-300 hover:text-blue-400 ${
+                                            isActive
+                                                ? "text-blue-500 border-b-2 border-blue-500"
+                                                : "text-white"
+                                        }`
+                                    }
+                                >
+                                    {route.charAt(0).toUpperCase() +
+                                        route.slice(1)}
+                                </NavLink>
+                            </li>
+                        )
+                    )}
                 </ul>
 
                 {/* Auth Buttons */}
@@ -119,24 +116,20 @@ const Navbar = () => {
                     </button>
 
                     <ul className="mt-16 flex flex-col gap-6">
-                        {[
-                            "stores",
-                            "categories",
-                            "about",
-                            "profile",
-                            "settings",
-                        ].map((route) => (
-                            <li key={route}>
-                                <NavLink
-                                    to={`/${route}`}
-                                    onClick={toggleMenu}
-                                    className="text-lg text-white font-semibold transition-transform hover:scale-105 block"
-                                >
-                                    {route.charAt(0).toUpperCase() +
-                                        route.slice(1)}
-                                </NavLink>
-                            </li>
-                        ))}
+                        {["stores", "categories", "about", "settings"].map(
+                            (route) => (
+                                <li key={route}>
+                                    <NavLink
+                                        to={`/${route}`}
+                                        onClick={toggleMenu}
+                                        className="text-lg text-white font-semibold transition-transform hover:scale-105 block"
+                                    >
+                                        {route.charAt(0).toUpperCase() +
+                                            route.slice(1)}
+                                    </NavLink>
+                                </li>
+                            )
+                        )}
                     </ul>
 
                     {/* Auth Buttons */}
