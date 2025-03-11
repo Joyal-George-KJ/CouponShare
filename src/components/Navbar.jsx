@@ -6,6 +6,9 @@ import AppwriteConfig from "../constants/AppwriteConf";
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isLogged, setIsLogged] = useState(false); // Start with false
+    const [profile, setProfile] = useState({
+        avatar: "https://via.placeholder.com/100",
+    });
     const Auth = new AppwriteConfig(
         "https://cloud.appwrite.io/v1",
         import.meta.env.VITE_APPWRITE_PROJECT_ID
@@ -15,13 +18,15 @@ const Navbar = () => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                await Auth.account.get();
+                let {picture} = await Auth.getUserDetails();
+                setProfile({avatar: picture});
                 setIsLogged(true);
             } catch {
                 setIsLogged(false);
             }
         };
         checkAuth();
+        setIsOpen(false);
     }, []);
 
     const handleLogout = async () => {
