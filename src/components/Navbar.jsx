@@ -18,7 +18,9 @@ const Navbar = () => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                setIsLogged(true);
+                const res = await Auth.getUserProfile();
+                res ? setIsLogged(true) : setIsLogged(false);
+                setProfile(res);
             } catch {
                 setIsLogged(false);
             }
@@ -53,7 +55,7 @@ const Navbar = () => {
                                 <NavLink
                                     to={`/${route}`}
                                     className={({ isActive }) =>
-                                        `text-lg font-medium transition duration-300 hover:text-blue-400 ${
+                                        `text-lg font-medium transition duration-300 hover:text-blue-400 cursor-pointer ${
                                             isActive
                                                 ? "text-blue-500 border-b-2 border-blue-500"
                                                 : "text-white"
@@ -76,12 +78,12 @@ const Navbar = () => {
                                 <img
                                     src={profile.avatar}
                                     alt="Profile"
-                                    className="w-18 aspect-square object-contain rounded-full border-2 border-neutral-500"
+                                    className="w-18 aspect-square object-contain rounded-full border-2 border-neutral-500 cursor-pointer"
                                 />
                             </NavLink>
                             <button
                                 onClick={handleLogout}
-                                className="w-full bg-red-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-red-600 transition-all"
+                                className="w-full bg-red-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-red-600 transition-all cursor-pointer"
                             >
                                 Logout
                             </button>
@@ -89,7 +91,7 @@ const Navbar = () => {
                     ) : (
                         <NavLink
                             to="/login"
-                            className="w-full bg-green-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-green-600 transition-all"
+                            className="w-full bg-green-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-green-600 transition-all cursor-pointer"
                         >
                             Login
                         </NavLink>
@@ -122,7 +124,7 @@ const Navbar = () => {
                                     <NavLink
                                         to={`/${route}`}
                                         onClick={toggleMenu}
-                                        className="text-lg text-white font-semibold transition-transform hover:scale-105 block"
+                                        className="text-lg text-white font-semibold transition-transform hover:scale-105 block cursor-pointer"
                                     >
                                         {route.charAt(0).toUpperCase() +
                                             route.slice(1)}
@@ -140,12 +142,12 @@ const Navbar = () => {
                                     <img
                                         src={profile.avatar}
                                         alt="Profile"
-                                        className="w-12 h-12 rounded-full border-2 border-neutral-500"
+                                        className="w-12 h-12 rounded-full border-2 border-neutral-500 cursor-pointer object-cover"
                                     />
                                 </NavLink>
                                 <button
                                     onClick={handleLogout}
-                                    className="w-full bg-red-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-red-600 transition-all"
+                                    className="w-full bg-red-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-red-600 transition-all cursor-pointer"
                                 >
                                     Logout
                                 </button>
@@ -153,7 +155,7 @@ const Navbar = () => {
                         ) : (
                             <NavLink
                                 to="/login"
-                                className="w-full bg-green-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-green-600 transition-all"
+                                className="w-full bg-green-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-green-600 transition-all cursor-pointer"
                             >
                                 Login
                             </NavLink>
