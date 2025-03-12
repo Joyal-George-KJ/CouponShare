@@ -26,7 +26,7 @@ const Login = () => {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
           <input
@@ -34,12 +34,12 @@ const Login = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
           <button
             type="submit"
-            className="w-full bg-green-500 py-3 rounded-lg text-lg font-medium hover:bg-green-600 transition-all cursor-pointer"
+            className="w-full bg-blue-500 py-3 rounded-lg text-lg font-medium hover:bg-blue-600 transition-all cursor-pointer"
           >
             Login
           </button>
@@ -51,7 +51,7 @@ const Login = () => {
 
         <p className="text-center text-neutral-400 mt-4">
           Don't have an account?{" "}
-          <NavLink to={"/register"} className="text-green-400 hover:underline">
+          <NavLink to={"/register"} className="text-blue-400 hover:underline">
             Sign Up
           </NavLink>
         </p>

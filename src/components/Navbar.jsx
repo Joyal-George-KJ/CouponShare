@@ -91,7 +91,7 @@ const Navbar = () => {
                     ) : (
                         <NavLink
                             to="/login"
-                            className="w-full bg-green-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-green-600 transition-all cursor-pointer"
+                            className="w-full bg-blue-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-blue-600 transition-all cursor-pointer"
                         >
                             Login
                         </NavLink>
@@ -155,7 +155,7 @@ const Navbar = () => {
                         ) : (
                             <NavLink
                                 to="/login"
-                                className="w-full bg-green-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-green-600 transition-all cursor-pointer"
+                                className="w-full bg-blue-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-blue-600 transition-all cursor-pointer"
                             >
                                 Login
                             </NavLink>

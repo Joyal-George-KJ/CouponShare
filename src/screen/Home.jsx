@@ -14,10 +14,10 @@ function Home() {
             </p>
 
             <div className="mt-6 flex flex-row gap-4">
-                <Link to={"/stores"} className="bg-green-500 text-white px-6 py-3 mobile:text-base md:text-lg font-medium rounded-lg hover:bg-green-600 transition-all">
+                <Link to={"/stores"} className="bg-blue-500 text-white px-6 py-3 mobile:text-base md:text-lg font-medium rounded-lg hover:bg-blue-600 transition-all shadow shadow-white">
                     Browse Coupons
                 </Link>
-                <button className="bg-neutral-700 text-white px-6 py-3 mobile:text-base md:text-lg font-medium rounded-lg hover:bg-neutral-600 transition-all">
+                <button className="bg-white text-blue-500 px-6 py-3 mobile:text-base md:text-lg font-medium rounded-lg hover:bg-neutral-200 transition-all shadow shadow-blue-600">
                     Share a Coupon
                 </button>
             </div>
