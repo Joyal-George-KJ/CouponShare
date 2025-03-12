@@ -90,40 +90,54 @@ class AppwriteConfig {
         }
     }
 
-    async getProfile() {
+    async getUserProfile() {
         try {
+            // Fetch user profile from Appwrite
             const user = await this.account.get();
-            console.log("User profile:", user);
-            return user;
-        } catch (error) {
-            console.error("Failed to get user profile:", error);
-        }
-    }
-
-    async getUserDetails() {
-        try {
-            const session = await this.account.getSession('current');
-            
-            if (!session || !session.providerAccessToken) {
-                throw new Error("No valid access token found.");
+            console.log("User profile from Appwrite:", user);
+    
+            // Try to get the Google OAuth details if available
+            let userDetails = {};
+            try {
+                const session = await this.account.getSession('current');
+                if (session?.providerAccessToken) {
+                    const response = await fetch(
+                        `https://www.googleapis.com/oauth2/v3/userinfo?access_token=${session.providerAccessToken}`
+                    );
+    
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch Google user info");
+                    }
+    
+                    const googleData = await response.json();
+                    userDetails = {
+                        email: googleData.email,
+                        name: googleData.name,
+                        picture: googleData.picture
+                    };
+                } else {
+                    console.warn("No valid Google access token found.");
+                }
+            } catch (googleError) {
+                console.error("Error fetching Google user details:", googleError);
             }
     
-            const response = await fetch(
-                `https://www.googleapis.com/oauth2/v3/userinfo?access_token=${session.providerAccessToken}`
-            );
-    
-            if (!response.ok) {
-                throw new Error("Failed to fetch user info");
-            }
-    
-            const userData = await response.json();
-            
-            return {email: userData.email, name: userData.name, picture: userData.picture}; // ✅ Return the user details
-        } catch (error) {
-            console.error("Error fetching user details:", error);
+            // Merge data from both sources (Appwrite and Google)
+            return {
+                userId: user.$id,
+                email: user.email || userDetails.email,
+                name: user.name || userDetails.name,
+                avatar: userDetails.picture || null, // Use Google picture if available
+                registration: user.registration,
+                status: user.status,
+                provider: user.provider // May contain OAuth provider info
+            };
+        } catch (err) {
+            console.error("Failed to get complete user profile:", err);
             return null;
         }
     }
+    
     
 }
 
