@@ -26,22 +26,11 @@ const Profile = () => {
         async function fetchProfile() {
             try {
                 // Fetch Appwrite Profile
-                const profileData = await config.getProfile();
+                const profileData = await config.getUserProfile();
                 if (profileData) {
                     setProfile(prev => ({
                         ...prev, 
-                        email: profileData.email, 
-                        name: profileData.name
-                    }));
-                }
-    
-                // Fetch Google OAuth Details
-                const userData = await config.getUserDetails();
-                if (userData) {
-                    
-                    setProfile(prev => ({
-                        ...prev, 
-                        ...userData
+                        ...profileData
                     }));
                 }
     
@@ -52,6 +41,11 @@ const Profile = () => {
     
         fetchProfile();
     }, []);
+
+    useEffect(() => {
+      console.log(profile);
+    }, [profile])
+    
     
     
 
@@ -59,7 +53,7 @@ const Profile = () => {
         <div className=" bg-neutral-800 rounded-lg shadow-lg text-white">
             <div className="flex items-center gap-4">
                 <img
-                    src={profile.picture}
+                    src={profile.avatar}
                     alt="Profile"
                     className="w-24 h-24 rounded-full border-2 border-neutral-500"
                 />
