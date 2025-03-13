@@ -1,4 +1,4 @@
-import { Client, Account, OAuthProvider, ID } from "appwrite";
+import { Client, Account, OAuthProvider, ID, Databases, Query } from "appwrite";
 
 class AppwriteConfig {
     constructor(END_POINT, PROJECT_ID) {
@@ -42,7 +42,9 @@ class AppwriteConfig {
             console.log("User logged in, sending verification email...", user);
             try {
                 // Send verification email
-                const redirectURL = "https://verification.joyalgeorgekj.com/?projectId=" + import.meta.env.VITE_APPWRITE_PROJECT_ID;
+                const redirectURL =
+                    "https://verification.joyalgeorgekj.com/?projectId=" +
+                    import.meta.env.VITE_APPWRITE_PROJECT_ID;
                 const response = await this.account.createVerification(
                     redirectURL
                 );
@@ -95,33 +97,36 @@ class AppwriteConfig {
             // Fetch user profile from Appwrite
             const user = await this.account.get();
             console.log("User profile from Appwrite:", user);
-    
+
             // Try to get the Google OAuth details if available
             let userDetails = {};
             try {
-                const session = await this.account.getSession('current');
+                const session = await this.account.getSession("current");
                 if (session?.providerAccessToken) {
                     const response = await fetch(
                         `https://www.googleapis.com/oauth2/v3/userinfo?access_token=${session.providerAccessToken}`
                     );
-    
+
                     if (!response.ok) {
                         throw new Error("Failed to fetch Google user info");
                     }
-    
+
                     const googleData = await response.json();
                     userDetails = {
                         email: googleData.email,
                         name: googleData.name,
-                        picture: googleData.picture
+                        picture: googleData.picture,
                     };
                 } else {
                     console.warn("No valid Google access token found.");
                 }
             } catch (googleError) {
-                console.error("Error fetching Google user details:", googleError);
+                console.error(
+                    "Error fetching Google user details:",
+                    googleError
+                );
             }
-    
+
             // Merge data from both sources (Appwrite and Google)
             return {
                 userId: user.$id,
@@ -130,15 +135,33 @@ class AppwriteConfig {
                 avatar: userDetails.picture || null, // Use Google picture if available
                 registration: user.registration,
                 status: user.status,
-                provider: user.provider // May contain OAuth provider info
+                provider: user.provider, // May contain OAuth provider info
             };
         } catch (err) {
-            console.error("Failed to get complete user profile:", err);
+            console.log("Failed to get complete user profile:", err);
             return null;
         }
     }
-    
-    
+
+    async createCoupon(data) {
+        try {
+            await this.getUserProfile();
+            // Fetch coupons from Appwrite
+            try {
+                this.database = new Databases(this.client);
+                this.database.createDocument(
+                    import.meta.env.VITE_APPWRITE_DATABASE_ID,
+                    import.meta.env.VITE_APPWRITE_COLLECTION_ID,
+                    ID.unique(),
+                    data
+                );
+            } catch (error) {
+                console.error("Failed to create document:", error);
+            }
+        } catch (error) {
+            console.error("Failed to get user profile:", error);
+        }
+    }
 }
 
 export default AppwriteConfig;
