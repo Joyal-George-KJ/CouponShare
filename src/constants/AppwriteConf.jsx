@@ -95,7 +95,7 @@ class AppwriteConfig {
     async getUserProfile() {
         try {
             // Fetch user profile from Appwrite
-            const user = await this.account.get();
+            const user = await this.account.getSession();
             console.log("User profile from Appwrite:", user);
 
             // Try to get the Google OAuth details if available
@@ -121,10 +121,15 @@ class AppwriteConfig {
                     console.warn("No valid Google access token found.");
                 }
             } catch (googleError) {
-                console.error(
-                    "Error fetching Google user details:",
-                    googleError
-                );
+                return user ? {
+                    userId: user.$id,
+                    email: user.email || userDetails.email,
+                    name: user.name || userDetails.name,
+                    avatar: userDetails.picture || null, // Use Google picture if available
+                    registration: user.registration,
+                    status: user.status,
+                    provider: user.provider, // May contain OAuth provider info
+                } : false
             }
 
             // Merge data from both sources (Appwrite and Google)
@@ -138,8 +143,7 @@ class AppwriteConfig {
                 provider: user.provider, // May contain OAuth provider info
             };
         } catch (err) {
-            console.log("Failed to get complete user profile:", err);
-            return null;
+            return false;
         }
     }
 
