@@ -1,29 +1,49 @@
-import { Info } from "lucide-react";
+import { EyeClosedIcon, EyeIcon, Info } from "lucide-react";
 import React, { useState } from "react";
 
-function PasswordInput({pattern, password, setPassword, placeholder}) {
+function PasswordInput({ pattern, password, setPassword, placeholder }) {
     const [toggle, setToggle] = useState(false);
+    const [type, setType] = useState("password");
+    const changeHandle = (e) => {
+        setPassword(e.target.value);
+        console.log(pattern.test(e.target.value));
+
+        if (e.target.value.length < 8) {
+            setToggle(true);
+        } else if (pattern.test(e.target.value)) {
+            setToggle(false);
+        } else {
+            setToggle(true);
+        }
+    };
+
     return (
         <>
             <div className="relative">
                 <input
-                    type="password"
+                    type={type}
                     placeholder={placeholder}
                     pattern={pattern}
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={changeHandle}
                     className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
                     required
                 />
-                <Info
-                    className="absolute top-3 right-3 text-neutral-300 cursor-pointer"
-                    onClick={() => {
-                        setToggle(true);
-                        setTimeout(() => {
-                            setToggle(false);
-                        }, 2000);
-                    }}
-                />
+                {type === "text" ? (
+                    <EyeIcon
+                        className="absolute top-3 right-3 text-neutral-300 cursor-pointer"
+                        onClick={() => {
+                            setType("password");
+                        }}
+                    />
+                ) : (
+                    <EyeClosedIcon
+                        className="absolute top-3 right-3 text-neutral-300 cursor-pointer"
+                        onClick={() => {
+                            setType("text");
+                        }}
+                    />
+                )}
             </div>
             {toggle ? (
                 <p className="text-yellow-400 text-sm">
