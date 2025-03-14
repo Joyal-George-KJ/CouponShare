@@ -3,6 +3,7 @@ import GoogleAuth from "../components/GoogleAuth";
 import AppwriteConfig from "../constants/AppwriteConf";
 import { NavLink } from "react-router-dom";
 import { Info } from "lucide-react";
+import PasswordInput from "../components/PasswordInput";
 
 const Register = () => {
     const [username, setUsername] = useState("");
@@ -45,37 +46,7 @@ const Register = () => {
                         className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
                         required
                     />
-                    <div className="relative">
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_=+-]).{8,12}$"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
-                            required
-                        />
-                        <Info
-                            className="absolute top-3 right-3 text-neutral-300 cursor-pointer"
-                            onClick={() => {
-                                setToggle(true);
-                                setTimeout(() => {
-                                    setToggle(false);
-                                }, 2000);
-                            }}
-                        />
-                    </div>
-                    {toggle ? (
-                        <p className="text-yellow-400 text-sm">
-                            Password must contain <br />
-                            <li>At least 8 characters</li>{" "}
-                            <li>1 uppercase letter</li>{" "}
-                            <li>1 lowercase letter</li>{" "}
-                            <li>1 number and 1 special character</li>
-                        </p>
-                    ) : (
-                        <></>
-                    )}
+                    <PasswordInput pattern={/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_=+-]).{8,12}$/i} setPassword={setPassword} placeholder={"Password"} key={'1'} password={password} />
                     <button
                         type="submit"
                         className="w-full bg-blue-500 py-3 rounded-lg text-lg font-medium hover:bg-blue-600 transition-all cursor-pointer"
