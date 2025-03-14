@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AppwriteConfig from "../constants/AppwriteConf";
+import Avatar from "../components/Avatar";
 
 const Profile = () => {
     const [editMode, setEditMode] = useState(false);
@@ -50,13 +51,9 @@ const Profile = () => {
     
 
     return (
-        <div className=" bg-neutral-800 rounded-lg shadow-lg text-white">
+        <div className="bg-neutral-800 rounded-lg shadow-lg text-white">
             <div className="flex items-center gap-4">
-                <img
-                    src={profile.avatar}
-                    alt="Profile"
-                    className="w-24 h-24 rounded-full border-2 border-neutral-500"
-                />
+                <Avatar  />
                 <div className="flex-1">
                     {editMode ? (
                         <input
