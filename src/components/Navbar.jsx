@@ -19,6 +19,7 @@ const Navbar = () => {
         const checkAuth = async () => {
             try {
                 const res = await Auth.getUserProfile();
+                console.log(res);
                 res ? setIsLogged(true) : setIsLogged(false);
                 setProfile(res);
             } catch {
@@ -78,7 +79,7 @@ const Navbar = () => {
                                 <img
                                     src={profile.avatar}
                                     alt="Profile"
-                                    className="w-18 aspect-square object-contain rounded-full border-2 border-neutral-500 cursor-pointer"
+                                    className="w-12 aspect-square object-contain rounded-full border-2 border-neutral-500 cursor-pointer"
                                 />
                             </NavLink>
                             <button
