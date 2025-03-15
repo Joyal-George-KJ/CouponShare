@@ -95,7 +95,7 @@ class AppwriteConfig {
     async getUserProfile() {
         try {
             // Fetch user profile from Appwrite
-            const user = await this.account.getSession();
+            const user = await this.account.getSession('current');
             console.log("User profile from Appwrite:", user);
 
             // Try to get the Google OAuth details if available
