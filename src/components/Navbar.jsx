@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import AppwriteConfig from "../constants/AppwriteConf";
+import Avatar from "./Avatar";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -76,11 +77,7 @@ const Navbar = () => {
                     {isLogged ? (
                         <>
                             <NavLink to="/profile">
-                                <img
-                                    src={profile.avatar}
-                                    alt="Profile"
-                                    className="w-12 aspect-square object-contain rounded-full border-2 border-neutral-500 cursor-pointer"
-                                />
+                                <Avatar pic={profile.avatar ? profile.avatar : profile.name} className={`${profile?.avatar ? 'w-18' : 'w-12'} rounded-full`} />
                             </NavLink>
                             <button
                                 onClick={handleLogout}
