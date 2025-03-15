@@ -53,7 +53,7 @@ const Profile = () => {
     return (
         <div className="bg-neutral-800 rounded-lg shadow-lg text-white">
             <div className="flex items-center gap-4">
-                <Avatar  />
+                <Avatar pic={profile?.avatar ? profile.avatar : profile.name} />
                 <div className="flex-1">
                     {editMode ? (
                         <input
