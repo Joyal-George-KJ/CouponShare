@@ -7,9 +7,10 @@ import { NavLink } from "react-router-dom";
 function AddCoupon() {
     const [toggle, setToggle] = useState(false);
     const [title, setTitle] = useState("");
-    const [discription, setDiscription] = useState("");
+    const [description, setDescription] = useState("");
     const [tag, setTag] = useState("");
-    const [tags, setTags] = useState([""]);
+    const [tags, setTags] = useState([]);
+    const [code, setCode] = useState("");
     const inputRef = useRef(null);
 
     const handleTags = (e) => {
@@ -60,7 +61,10 @@ function AddCoupon() {
 
     return (
         <div>
-            <button className="cursor-pointer" onClick={() => setToggle(!toggle)}>
+            <button
+                className="cursor-pointer"
+                onClick={() => setToggle(!toggle)}
+            >
                 <PlusSquareIcon />
             </button>
             {toggle && (
