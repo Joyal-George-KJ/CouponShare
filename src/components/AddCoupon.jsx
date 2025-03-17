@@ -23,8 +23,39 @@ function AddCoupon() {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        handleTags({ key: "Enter" });
-        console.log("Logging in with:", { title, discription, tag, tags });
+        handleTags({ key: "Enter", target: { value: tag } });
+        const validateURL =
+            /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
+        const config = new AppwriteConfig(
+            "https://cloud.appwrite.io/v1",
+            import.meta.env.VITE_APPWRITE_PROJECT_ID
+        );
+        let resp;
+
+        if (validateURL.test(code)) {
+            resp = await config.createCoupon({
+                title,
+                description,
+                tags,
+                redirect: code,
+            });
+            console.log("Valid URL", resp);
+        } else {
+            resp = await config.createCoupon({
+                title,
+                description,
+                tags,
+                code,
+            });
+            console.log("Invalid URL", resp);
+        }
+        console.log("Logging in with:", {
+            title,
+            description,
+            tag,
+            tags,
+            code,
+        });
     };
 
     return (
