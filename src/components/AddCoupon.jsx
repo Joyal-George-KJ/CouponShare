@@ -1,8 +1,6 @@
-import { Hand, PlusSquareIcon } from "lucide-react";
+import { PlusSquareIcon } from "lucide-react";
 import React, { useRef, useState } from "react";
-import PasswordInput from "./PasswordInput";
-import GoogleAuth from "./GoogleAuth";
-import { NavLink } from "react-router-dom";
+import AppwriteConfig from "../constants/AppwriteConf";
 
 function AddCoupon() {
     const [toggle, setToggle] = useState(false);
@@ -16,7 +14,6 @@ function AddCoupon() {
     const handleTags = (e) => {
         setTag(e.target.value);
         if (e.key === "Enter") {
-
             setTags([...tags, e.target.value]);
             setTag("");
         }
