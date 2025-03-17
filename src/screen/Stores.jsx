@@ -4,6 +4,23 @@ import AddCoupon from "../components/AddCoupon";
 
 function Stores() {
     const [toggleCode, setToggleCode] = useState(false);
+    const [coupons, setCoupons] = useState([]);
+
+    useEffect(() => {
+        fetchCoupons();
+    }, [])
+
+    const fetchCoupons = async () => {
+        const Auth = new AppwriteConfig(
+            "https://cloud.appwrite.io/v1",
+            import.meta.env.VITE_APPWRITE_PROJECT_ID
+        );
+
+        const res = await Auth.getCoupons();
+
+        setCoupons(res.documents);
+        console.log(res.documents);
+    };
 
     return (
         <>
@@ -48,6 +65,9 @@ function Stores() {
                     expiryDate={"20/2/2026"}
                     title={"15% Discount on every purchase above 299rs"}
                 />
+                {
+                    coupons.map((val, ind) => <CouponCard key={ind} {...val} />)
+                }
             </div>
         </>
     );
