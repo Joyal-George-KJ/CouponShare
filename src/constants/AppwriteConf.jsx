@@ -166,6 +166,28 @@ class AppwriteConfig {
             console.error("Failed to get user profile:", error);
         }
     }
+
+    async getCoupons() {
+        try {
+            await this.getUserProfile();
+            // Fetch coupons from Appwrite
+            try {
+                this.database = new Databases(this.client);
+                
+                return await this.database.listDocuments(
+                    import.meta.env.VITE_APPWRITE_DATABASE_ID,
+                    import.meta.env.VITE_APPWRITE_COLLECTION_ID,
+                    [
+                        Query.limit(25)
+                    ]
+                );
+            } catch (error) {
+                console.error("Failed to create document:", error);
+            }
+        } catch (error) {
+            console.error("Failed to get user profile:", error);
+        }
+    }
 }
 
 export default AppwriteConfig;
