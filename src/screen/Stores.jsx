@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CouponCard from "../components/CouponCard";
 import AddCoupon from "../components/AddCoupon";
+import AppwriteConfig from "../constants/AppwriteConf";
 
 function Stores() {
     const [toggleCode, setToggleCode] = useState(false);
