@@ -1,16 +1,10 @@
 import React, { useState } from "react";
-import AppwriteConfig from "../constants/AppwriteConf";
 
 function CouponCard({ tags, title, description, expiryDate, code }) {
     const [toggleCode, setToggleCode] = useState(false);
     const activater = async () => {
         setToggleCode(!toggleCode);
         navigator.clipboard.writeText(code);
-        const Auth = new AppwriteConfig('https://cloud.appwrite.io/v1', import.meta.env.VITE_APPWRITE_PROJECT_ID);
-
-        const res = await Auth.createCoupon();
-
-        console.log(res);
         
         setTimeout(() => {
             setToggleCode(false);
