@@ -29,7 +29,7 @@ function AddCoupon() {
             import.meta.env.VITE_APPWRITE_PROJECT_ID
         );
         let resp;
-
+        
         if (validateURL.test(code)) {
             resp = await config.createCoupon({
                 title,
@@ -47,6 +47,7 @@ function AddCoupon() {
             });
             console.log("Invalid URL", resp);
         }
+        setToggle(false);
         console.log("Logging in with:", {
             title,
             description,
