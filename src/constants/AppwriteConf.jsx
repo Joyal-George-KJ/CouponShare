@@ -161,6 +161,8 @@ class AppwriteConfig {
                     ID.unique(),
                     data
                 );
+
+                data.tags.map(async (val) => await this.addTag(val));
             } catch (error) {
                 console.error("Failed to create document:", error);
             }
