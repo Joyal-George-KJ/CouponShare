@@ -104,7 +104,7 @@ function AddCoupon() {
                                 onKeyDown={handleTags}
                                 onChange={(e) => setTag(e.target.value)}
                                 className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
-                                required
+                                required={tags.length === 0}
                             />
                             <input
                                 type="text"
