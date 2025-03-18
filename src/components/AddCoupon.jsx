@@ -21,7 +21,7 @@ function AddCoupon() {
 
     const handleCoupon = async (e) => {
         e.preventDefault();
-        handleTags({ key: "Enter", target: { value: tag } });
+        tag !== '' ? handleTags({ key: "Enter", target: { value: tag } }) : null;
         const validateURL =
             /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
         const config = new AppwriteConfig(
