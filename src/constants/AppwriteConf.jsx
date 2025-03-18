@@ -177,7 +177,7 @@ class AppwriteConfig {
             // Fetch coupons from Appwrite
             try {
                 this.database = new Databases(this.client);
-                
+
                 return await this.database.listDocuments(
                     import.meta.env.VITE_APPWRITE_DATABASE_ID,
                     import.meta.env.VITE_APPWRITE_COUPON_COLLECTION_ID,
