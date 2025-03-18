@@ -188,6 +188,37 @@ class AppwriteConfig {
             console.error("Failed to get user profile:", error);
         }
     }
+
+    async addTag(tag) {
+        try {
+            await this.getUserProfile();
+            // Fetch tags from Appwrite
+            try {
+                this.database = new Databases(this.client);
+                let res = await this.getTags(tag);
+                if (res && tag !== "") {
+                    console.log(res);
+                    this.database.updateDocument(
+                        import.meta.env.VITE_APPWRITE_DATABASE_ID,
+                        import.meta.env.VITE_APPWRITE_TAG_COLLECTION_ID,
+                        res.documents[0].$id,
+                        { count: res.documents[0].count + 1 }
+                    );
+                } else {
+                    this.database.createDocument(
+                        import.meta.env.VITE_APPWRITE_DATABASE_ID,
+                        import.meta.env.VITE_APPWRITE_TAG_COLLECTION_ID,
+                        ID.unique(),
+                        { tag, count: 1 }
+                    );
+                }
+            } catch (error) {
+                console.error("Failed to create document:", error);
+            }
+        } catch (error) {
+            console.error("Failed to get user profile:", error);
+        }
+    }
 }
 
 export default AppwriteConfig;
