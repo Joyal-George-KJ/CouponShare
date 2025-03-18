@@ -157,7 +157,7 @@ class AppwriteConfig {
                 this.database = new Databases(this.client);
                 this.database.createDocument(
                     import.meta.env.VITE_APPWRITE_DATABASE_ID,
-                    import.meta.env.VITE_APPWRITE_COLLECTION_ID,
+                    import.meta.env.VITE_APPWRITE_COUPON_COLLECTION_ID,
                     ID.unique(),
                     data
                 );
@@ -178,10 +178,8 @@ class AppwriteConfig {
                 
                 return await this.database.listDocuments(
                     import.meta.env.VITE_APPWRITE_DATABASE_ID,
-                    import.meta.env.VITE_APPWRITE_COLLECTION_ID,
-                    [
-                        Query.limit(25)
-                    ]
+                    import.meta.env.VITE_APPWRITE_COUPON_COLLECTION_ID,
+                    [Query.limit(25)]
                 );
             } catch (error) {
                 console.error("Failed to create document:", error);
