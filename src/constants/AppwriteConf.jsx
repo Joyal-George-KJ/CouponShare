@@ -219,6 +219,34 @@ class AppwriteConfig {
             console.error("Failed to get user profile:", error);
         }
     }
+
+    async getTags(tag = null) {
+        if (tag !== null) {
+            try {
+                this.database = new Databases(this.client);
+                return await this.database.listDocuments(
+                    import.meta.env.VITE_APPWRITE_DATABASE_ID,
+                    import.meta.env.VITE_APPWRITE_TAG_COLLECTION_ID,
+                    [Query.equal("tag", tag)]
+                );
+            } catch (error) {
+                console.error("Failed to create document:", error);
+                return false;
+            }
+        } else {
+            try {
+                this.database = new Databases(this.client);
+                return await this.database.listDocuments(
+                    import.meta.env.VITE_APPWRITE_DATABASE_ID,
+                    import.meta.env.VITE_APPWRITE_TAG_COLLECTION_ID,
+                    [Query.limit(25)]
+                );
+            } catch (error) {
+                console.error("Failed to create document:", error);
+                return false;
+            }
+        }
+    }
 }
 
 export default AppwriteConfig;
