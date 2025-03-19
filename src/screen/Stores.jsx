@@ -3,8 +3,10 @@ import CouponCard from "../components/CouponCard";
 import AddCoupon from "../components/AddCoupon";
 import AppwriteConfig from "../constants/AppwriteConf";
 import Loader from "../components/Loader";
+import { useSelector } from "react-redux";
 
 function Stores() {
+    const user = useSelector((state) => state.user.user);
     const [coupons, setCoupons] = useState([]);
     const [loading, setLoading] = useState(true)
     const Auth = new AppwriteConfig(
@@ -22,7 +24,6 @@ function Stores() {
             const res = await Auth.getCoupons();
             setLoading(false);
             setCoupons(res.documents);
-            console.log(res.documents);
         } catch (error) {
             setLoading(true);
             console.error("Failed to get coupons:", error);
@@ -38,7 +39,7 @@ function Stores() {
         <>
             <div className="flex justify-between p-2 mb-4">
                 <h3 className="text-lg font-medium">Coupons</h3>
-                <AddCoupon />
+                {user && <AddCoupon />}
             </div>
             <div className="grid laptop:grid-cols-3 mobile:grid-cols-1 tablet:grid-cols-2 gap-4">
                 {
