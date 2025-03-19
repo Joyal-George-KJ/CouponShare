@@ -28,8 +28,13 @@ const Navbar = () => {
     }, []);
 
     const handleLogout = async () => {
-        await Auth.logout();
-        setIsLogged(false); // Update state after logout
+        try {
+            await Auth.logout();
+            setIsLogged(false); // Update state after logout
+        } catch (error) {
+            console.error("Logout failed:", error);
+            setIsLogged(true); // Update state after failed logout
+        }
     };
 
     const toggleMenu = () => setIsOpen(!isOpen);
