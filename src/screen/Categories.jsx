@@ -11,9 +11,20 @@ const Categories = () => {
             "https://cloud.appwrite.io/v1",
             import.meta.env.VITE_APPWRITE_PROJECT_ID
         );
+
         const getTags = async () => {
-            let res = await config.getTags();
-            setCategories(res.documents);
+            try {
+                let res = await config.getTags();
+                if (res) {
+                    setCategories(res.documents);
+                    setLoading(false);
+                }
+                
+            } catch (error) {
+                setLoading(true);
+                console.error("Failed to get categories:", error);
+                
+            }
         };
         getTags();
     }, []);
