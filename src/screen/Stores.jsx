@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CouponCard from "../components/CouponCard";
 import AddCoupon from "../components/AddCoupon";
 import AppwriteConfig from "../constants/AppwriteConf";
+import Loader from "../components/Loader";
 
 function Stores() {
     const [coupons, setCoupons] = useState([]);
@@ -28,6 +29,10 @@ function Stores() {
         }
 
     };
+
+    if (loading) {
+        return <Loader />;
+    }
 
     return (
         <>

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Tags from "../components/Tags";
 import AppwriteConfig from "../constants/AppwriteConf";
+import Loader from "../components/Loader";
 
 const Categories = () => {
     const [sortType, setSortType] = useState("A-Z");
     const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         let config = new AppwriteConfig(
@@ -36,6 +38,12 @@ const Categories = () => {
         if (sortType === "Count") return b.count - a.count;
         return 0;
     });
+
+    if (loading) {
+        return (
+            <Loader />
+        );
+    }
 
     return (
         <div>
