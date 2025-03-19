@@ -19,18 +19,16 @@ function Layout() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-
         const timer = setTimeout(() => {
             setToggle(false);
         }, 3000);
-        
+
         const searchForUser = async () => {
             setLoading(true);
             let res = await config.getUserProfile();
             if (res) {
                 dispatch(setUser(res));
                 setLoading(false);
-                
             } else {
                 setTimeout(() => {
                     setLoading(false);
@@ -44,7 +42,9 @@ function Layout() {
 
     if (loading) {
         return (
-            <Loader />
+            <div className="bg-neutral-800 text-neutral-200 w-full flex justify-center items-center min-h-dvh p-4 mobile:px-4 tablet:px-8 laptop:px-16">
+                <Loader />
+            </div>
         );
     } else {
         return (
