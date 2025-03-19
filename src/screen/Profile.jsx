@@ -34,13 +34,6 @@ const Profile = () => {
         fetchProfile();
     }, []);
 
-    useEffect(() => {
-      console.log(profile);
-    }, [profile])
-    
-    
-    
-
     return (
         <div className="bg-neutral-800 rounded-lg shadow-lg text-white">
             <div className="flex items-center gap-4">
@@ -78,19 +71,25 @@ const Profile = () => {
                     <p className="text-neutral-300">{profile.bio}</p>
                 )}
             </div>
-            
+
             <div className="grid grid-cols-2 gap-4 mt-6">
                 <div className="bg-neutral-700 p-4 rounded-lg text-center">
                     <h3 className="text-lg font-bold">Shared Coupons</h3>
-                    <p className="text-2xl font-semibold">{profile.sharedCoupons}</p>
+                    <p className="text-2xl font-semibold">
+                        {profile.sharedCoupons}
+                    </p>
                 </div>
                 <div className="bg-neutral-700 p-4 rounded-lg text-center">
                     <h3 className="text-lg font-bold">Revenue Generated</h3>
-                    <p className="text-2xl font-semibold">₹{profile.revenueGenerated.toFixed(2)}</p>
+                    <p className="text-2xl font-semibold">
+                        ₹{profile.revenueGenerated.toFixed(2)}
+                    </p>
                 </div>
                 <div className="bg-neutral-700 p-4 rounded-lg text-center col-span-2">
                     <h3 className="text-lg font-bold">Saved Coupons</h3>
-                    <p className="text-2xl font-semibold">{profile.savedCoupons}</p>
+                    <p className="text-2xl font-semibold">
+                        {profile.savedCoupons}
+                    </p>
                 </div>
             </div>
         </div>
