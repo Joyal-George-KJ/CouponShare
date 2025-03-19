@@ -2,19 +2,24 @@ import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import AppwriteConfig from "./constants/AppwriteConf";
+import { useDispatch } from "react-redux";
+import { setUser } from "./util/slices/userSlice";
+import Loader from "./components/Loader";
 
 function Layout() {
     const message = "This is a message from Layout component";
     const [toggle, setToggle] = useState(true);
     const [loading, setLoading] = useState(true);
-    const [user, setUser] = useState(null);
 
     const config = new AppwriteConfig(
         "https://cloud.appwrite.io/v1",
         import.meta.env.VITE_APPWRITE_PROJECT_ID
     );
 
+    const dispatch = useDispatch();
+
     useEffect(() => {
+
         const timer = setTimeout(() => {
             setToggle(false);
         }, 3000);
@@ -23,14 +28,11 @@ function Layout() {
             setLoading(true);
             let res = await config.getUserProfile();
             if (res) {
-                console.log(res);
-
-                setUser(res);
+                dispatch(setUser(res));
                 setLoading(false);
                 
             } else {
                 setTimeout(() => {
-                    console.log("No user found");
                     setLoading(false);
                 }, 1500);
             }
