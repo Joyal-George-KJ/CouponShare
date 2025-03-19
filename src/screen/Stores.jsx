@@ -11,15 +11,17 @@ function Stores() {
     }, [])
 
     const fetchCoupons = async () => {
-        const Auth = new AppwriteConfig(
-            "https://cloud.appwrite.io/v1",
-            import.meta.env.VITE_APPWRITE_PROJECT_ID
-        );
 
-        const res = await Auth.getCoupons();
+        try {
+            const res = await Auth.getCoupons();
+            setLoading(false);
+            setCoupons(res.documents);
+            console.log(res.documents);
+        } catch (error) {
+            setLoading(true);
+            console.error("Failed to get coupons:", error);
+        }
 
-        setCoupons(res.documents);
-        console.log(res.documents);
     };
 
     return (
