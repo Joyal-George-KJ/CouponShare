@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import AppwriteConfig from "../constants/AppwriteConf";
 import Avatar from "./Avatar";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -78,7 +79,16 @@ const Navbar = () => {
                     {isLogged ? (
                         <>
                             <NavLink to="/profile">
-                                <Avatar pic={profile.avatar ? profile.avatar : profile.name} className={`${profile?.avatar ? 'w-18' : 'w-12'} rounded-full`} />
+                                <Avatar
+                                    pic={
+                                        profile.avatar
+                                            ? profile.avatar
+                                            : profile.name
+                                    }
+                                    className={`${
+                                        profile?.avatar ? "w-18" : "w-12"
+                                    } rounded-full`}
+                                />
                             </NavLink>
                             <button
                                 onClick={handleLogout}
