@@ -7,6 +7,7 @@ import Avatar from "./Avatar";
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isLogged, setIsLogged] = useState(false); // Start with false
+    const user = useSelector((state) => state.user.user);
     const [profile, setProfile] = useState({
         avatar: "https://via.placeholder.com/100",
     });
@@ -17,15 +18,10 @@ const Navbar = () => {
 
     // Check login status when component mounts
     useEffect(() => {
-        const checkAuth = async () => {
-            try {
-                const res = await Auth.getUserProfile();
-                console.log(res);
-                res ? setIsLogged(true) : setIsLogged(false);
-                setProfile(res);
-            } catch {
-                setIsLogged(false);
-            }
+        const checkAuth = () => {
+            const res = user;
+            res ? setIsLogged(true) : setIsLogged(false);
+            setProfile(res);
         };
         checkAuth();
         setIsOpen(false);

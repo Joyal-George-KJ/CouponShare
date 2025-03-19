@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import AppwriteConfig from "../constants/AppwriteConf";
 import Avatar from "../components/Avatar";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
     const [editMode, setEditMode] = useState(false);
+    const user = useSelector((state) => state.user.user);
     const [profile, setProfile] = useState({
         // picture: "https://via.placeholder.com/100",
         // name: "John Doe",
@@ -19,27 +20,17 @@ const Profile = () => {
     };
 
     useEffect(() => {
-        const config = new AppwriteConfig(
-            "https://cloud.appwrite.io/v1",
-            import.meta.env.VITE_APPWRITE_PROJECT_ID
-        );
-    
-        async function fetchProfile() {
-            try {
-                // Fetch Appwrite Profile
-                const profileData = await config.getUserProfile();
-                if (profileData) {
-                    setProfile(prev => ({
-                        ...prev, 
-                        ...profileData
-                    }));
-                }
-    
-            } catch (error) {
-                console.error("Error fetching user data:", error);
+
+        function fetchProfile() {
+            const profileData = user;
+            if (profileData) {
+                setProfile((prev) => ({
+                    ...prev,
+                    ...profileData,
+                }));
             }
         }
-    
+
         fetchProfile();
     }, []);
 
