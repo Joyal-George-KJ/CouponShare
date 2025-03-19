@@ -173,8 +173,6 @@ class AppwriteConfig {
 
     async getCoupons() {
         try {
-            await this.getUserProfile();
-            // Fetch coupons from Appwrite
             try {
                 this.database = new Databases(this.client);
 
