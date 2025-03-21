@@ -4,11 +4,13 @@ import AddCoupon from "../components/AddCoupon";
 import AppwriteConfig from "../constants/AppwriteConf";
 import Loader from "../components/Loader";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 function Stores() {
+    const { id } = useParams();
     const user = useSelector((state) => state.user.user);
     const [coupons, setCoupons] = useState([]);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
     const Auth = new AppwriteConfig(
         "https://cloud.appwrite.io/v1",
         import.meta.env.VITE_APPWRITE_PROJECT_ID
@@ -21,7 +23,7 @@ function Stores() {
     const fetchCoupons = async () => {
 
         try {
-            const res = await Auth.getCoupons();
+            const res = await Auth.getCoupons('tags', id);
             setLoading(false);
             setCoupons(res.documents);
         } catch (error) {
