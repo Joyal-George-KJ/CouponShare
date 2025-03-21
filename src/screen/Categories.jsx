@@ -33,9 +33,9 @@ const Categories = () => {
 
     // Sorting Function
     const sortedCategories = [...categories].sort((a, b) => {
-        if (sortType === "A-Z") return a.name.localeCompare(b.name);
-        if (sortType === "Z-A") return b.name.localeCompare(a.name);
-        if (sortType === "Count") return b.count - a.count;
+        if (a.name && b.name && sortType === "A-Z") return a.name.localeCompare(b.name);
+        if (a.name && b.name && sortType === "Z-A") return b.name.localeCompare(a.name);
+        if (a.name && b.name && sortType === "Count") return b.count - a.count;
         return 0;
     });
 
