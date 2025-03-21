@@ -171,7 +171,7 @@ class AppwriteConfig {
         }
     }
 
-    async getCoupons() {
+    async getCoupons(key, value) {
         try {
             try {
                 this.database = new Databases(this.client);
@@ -179,7 +179,7 @@ class AppwriteConfig {
                 return await this.database.listDocuments(
                     import.meta.env.VITE_APPWRITE_DATABASE_ID,
                     import.meta.env.VITE_APPWRITE_COUPON_COLLECTION_ID,
-                    [Query.limit(25)]
+                    [((key && value) ? Query.equal(key, value) : Query.limit(25))]
                 );
             } catch (error) {
                 console.error("Failed to create document:", error);
@@ -196,7 +196,7 @@ class AppwriteConfig {
             try {
                 this.database = new Databases(this.client);
                 let res = await this.getTags(tag);
-                if (res && tag !== "") {
+                if (res.total !== 0 && tag !== "") {
                     console.log(res);
                     this.database.updateDocument(
                         import.meta.env.VITE_APPWRITE_DATABASE_ID,
