@@ -1,8 +1,11 @@
 import { PlusSquareIcon } from "lucide-react";
 import React, { useRef, useState } from "react";
 import AppwriteConfig from "../constants/AppwriteConf";
+import SearchBar from "./SearchBar";
+import { useSelector } from "react-redux";
 
 function AddCoupon() {
+    const user = useSelector((state) => state.user.user);
     const [toggle, setToggle] = useState(false);
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -14,7 +17,7 @@ function AddCoupon() {
     const handleTags = (e) => {
         setTag(e.target.value);
         if (e.key === "Enter") {
-            setTags([...tags, e.target.value]);
+            setTags(prev => [...prev, e.target.value]);
             setTag("");
         }
     };
@@ -36,6 +39,7 @@ function AddCoupon() {
                 description,
                 tags,
                 redirect: code,
+                uid: user.userId,
             });
             console.log("Valid URL", resp);
         } else {
@@ -44,6 +48,7 @@ function AddCoupon() {
                 description,
                 tags,
                 code,
+                uid: user.userId,
             });
             console.log("Invalid URL", resp);
         }
@@ -54,6 +59,7 @@ function AddCoupon() {
             tag,
             tags,
             code,
+            uid: user.userId,
         });
     };
 
