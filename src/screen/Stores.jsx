@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 function Stores() {
-    const { id } = useParams();
+    const { key, value } = useParams();
     const user = useSelector((state) => state.user.user);
     const [coupons, setCoupons] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -23,7 +23,7 @@ function Stores() {
     const fetchCoupons = async () => {
 
         try {
-            const res = await Auth.getCoupons('tags', id);
+            const res = await Auth.getCoupons(key, value);
             setLoading(false);
             setCoupons(res.documents);
         } catch (error) {
