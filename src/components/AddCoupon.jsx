@@ -59,12 +59,15 @@ function AddCoupon() {
 
     return (
         <div>
-            <button
-                className="cursor-pointer"
-                onClick={() => setToggle(!toggle)}
-            >
-                <PlusSquareIcon />
-            </button>
+            <div className="flex items-center justify-center">
+                <SearchBar />
+                <button
+                    className="cursor-pointer"
+                    onClick={() => setToggle(!toggle)}
+                >
+                    <PlusSquareIcon className="w-10 h-10" />
+                </button>
+            </div>
             {toggle && (
                 <div className="min-h-[75dvh] flex items-center justify-center bg-neutral-800 text-white fixed top-0 left-0 right-0 bottom-0 z-50">
                     <div className="bg-neutral-800 p-8 rounded-xl shadow shadow-neutral-500 w-full max-w-md">
