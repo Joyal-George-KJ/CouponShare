@@ -1,5 +1,5 @@
-import { PlusSquareIcon } from "lucide-react";
-import React, { useRef, useState } from "react";
+import { PlusIcon } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
 import AppwriteConfig from "../constants/AppwriteConf";
 import SearchBar from "./SearchBar";
 import { useSelector } from "react-redux";
@@ -75,14 +75,14 @@ function AddCoupon() {
     };
 
     return (
-        <div>
-            <div className="flex items-center justify-center">
+        <div className="w-full">
+            <div className={`w-full flex items-center justify-between`}>
                 <SearchBar />
                 <button
-                    className="cursor-pointer"
+                    className="cursor-pointer w-fit tablet flex items-center gap-2 px-4 py-2 rounded-lg bg-neutral-700 hover:bg-neutral-800 hover:border hover:border-neutral-700"
                     onClick={() => setToggle(!toggle)}
                 >
-                    <PlusSquareIcon className="w-10 h-10" />
+                    {width > 722 && "Add Coupon"} <PlusIcon className="w-6 h-6" />
                 </button>
             </div>
             {toggle && (
