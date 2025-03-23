@@ -39,8 +39,7 @@ function Stores() {
 
     return (
         <>
-            <div className="flex justify-between p-2 mb-4">
-                <h3 className="text-lg font-medium">Coupons</h3>
+            <div className="flex justify-between py-2 mb-4">
                 {user && <AddCoupon />}
             </div>
             <div className="grid laptop:grid-cols-3 mobile:grid-cols-1 tablet:grid-cols-2 gap-4">
