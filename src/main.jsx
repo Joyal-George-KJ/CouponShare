@@ -22,7 +22,7 @@ createRoot(document.getElementById("root")).render(
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path="/stores" element={<Stores />} />
-                    <Route path="/stores/:key/:value" element={<Stores />} />
+                    <Route path="/stores/:key/:value" element={<Stores key={window.location.pathname} />} />
                     <Route path="/categories" element={<Categories />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
