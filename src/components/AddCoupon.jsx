@@ -12,7 +12,18 @@ function AddCoupon() {
     const [tag, setTag] = useState("");
     const [tags, setTags] = useState([]);
     const [code, setCode] = useState("");
+    const [width, setWidth] = useState(window.innerWidth);
     const inputRef = useRef(null);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWidth(window.innerWidth);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        }
+    }, []);
 
     const handleTags = (e) => {
         setTag(e.target.value);

@@ -1,7 +1,28 @@
 import { SearchIcon } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SearchBar() {
+    const navigate = useNavigate();
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWidth(window.innerWidth);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const searchSelector = event.target.searchSelector.value;
+        const searchInput = event.target.searchInput.value;
+        console.log(searchSelector, searchInput);
+        navigate(`/stores/${searchSelector}/${searchInput}`);
+    };
     return (
         <form className="flex justify-between items-center max-w-md mx-auto mr-4">
             {/* Search Type Selector */}
