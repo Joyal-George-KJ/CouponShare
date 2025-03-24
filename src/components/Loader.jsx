@@ -10,7 +10,6 @@ function Loader({ text }) {
                 if (prev === "Loading..") return "Loading...";
                 return "Loading";
             });
-            console.log("Loading text changed");
         }, 1000);
 
         return () => clearInterval(interval);
