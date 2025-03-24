@@ -179,7 +179,49 @@ class AppwriteConfig {
                 return await this.database.listDocuments(
                     import.meta.env.VITE_APPWRITE_DATABASE_ID,
                     import.meta.env.VITE_APPWRITE_COUPON_COLLECTION_ID,
-                    [((key && value) ? Query.equal(key, value) : Query.limit(25))]
+                    [key && value ? Query.equal(key, value) : Query.limit(25)]
+                );
+            } catch (error) {
+                console.error("Failed to create document:", error);
+            }
+        } catch (error) {
+            console.error("Failed to get user profile:", error);
+        }
+    }
+
+    async createUserDB(data) {
+        try {
+            let res = await this.getUserDB({ id: data.id });
+            if (res.total === 0) {
+                try {
+                    const database = new Databases(this.client);
+                    database.createDocument(
+                        import.meta.env.VITE_APPWRITE_DATABASE_ID,
+                        import.meta.env.VITE_APPWRITE_USER_COLLECTION_ID,
+                        ID.unique(),
+                        {
+                            id: data.id,
+                            email: data.email,
+                            name: data.name,
+                        }
+                    );
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+        } catch (error) {
+            console.error("Failed to get user profile:", error);
+        }
+    }
+
+    async getUserDB({ id }) {
+        try {
+            try {
+                this.database = new Databases(this.client);
+                return await this.database.listDocuments(
+                    import.meta.env.VITE_APPWRITE_DATABASE_ID,
+                    import.meta.env.VITE_APPWRITE_USER_COLLECTION_ID,
+                    [Query.equal("id", id)]
                 );
             } catch (error) {
                 console.error("Failed to create document:", error);
