@@ -28,7 +28,6 @@ function Layout() {
             let res = await config.getUserProfile();
             if (res) {
                 dispatch(setUser(res));
-                await config.createUserDB({id: res.userId, email: res.email, name: res.name});
                 setLoading(false);
             } else {
                 setTimeout(() => {
