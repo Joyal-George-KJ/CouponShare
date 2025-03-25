@@ -68,6 +68,7 @@ class AppwriteConfig {
             console.log("No user logged in, proceeding with login...");
             if (data) {
                 // User is not logged in, so initiate Email Password login
+                console.log("No user logged in, proceeding with Email Password Login...");
                 this.account.createEmailPasswordSession(
                     data.email,
                     data.password
