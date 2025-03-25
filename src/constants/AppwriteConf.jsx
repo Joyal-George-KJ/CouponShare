@@ -101,51 +101,9 @@ class AppwriteConfig {
             console.log("User profile from Appwrite:", user);
 
             // Try to get the Google OAuth details if available
-            let userDetails = {};
-            try {
-                const session = await this.account.getSession("current");
-                if (session?.providerAccessToken) {
-                    const response = await fetch(
-                        `https://www.googleapis.com/oauth2/v3/userinfo?access_token=${session.providerAccessToken}`
-                    );
+            let userDetails = await this.getUserDB({id: user.userId}).then((res) => res.documents[0]);
 
-                    if (!response.ok) {
-                        throw new Error("Failed to fetch Google user info");
-                    }
-
-                    const googleData = await response.json();
-                    userDetails = {
-                        email: googleData.email,
-                        name: googleData.name,
-                        picture: googleData.picture,
-                    };
-                } else {
-                    console.warn("No valid Google access token found.");
-                }
-            } catch (googleError) {
-                return user
-                    ? {
-                          userId: user.$id,
-                          email: user.email || userDetails.email,
-                          name: user.name || userDetails.name,
-                          avatar: userDetails.picture || null, // Use Google picture if available
-                          registration: user.registration,
-                          status: user.status,
-                          provider: user.provider, // May contain OAuth provider info
-                      }
-                    : false;
-            }
-
-            // Merge data from both sources (Appwrite and Google)
-            return {
-                userId: user.$id,
-                email: user.email || userDetails.email,
-                name: user.name || userDetails.name,
-                avatar: userDetails.picture || null, // Use Google picture if available
-                registration: user.registration,
-                status: user.status,
-                provider: user.provider, // May contain OAuth provider info
-            };
+            return userDetails ? {name: userDetails.name, id: userDetails.name, email: userDetails.email, avatar: userDetails.avatar} : false;
         } catch (err) {
             return false;
         }
