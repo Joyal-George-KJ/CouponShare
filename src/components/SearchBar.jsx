@@ -61,7 +61,7 @@ function SearchBar() {
             <button
                 type="submit"
                 className={`bg-neutral-700 border border-neutral-600 text-neutral-200 p-2 hover:bg-neutral-600 transition ${
-                    width > 722 ? "rounded-r-md" : "rounded-md"
+                    width > 722 ? "rounded-r-md p-2" : "rounded-md px-4 py-2 "
                 }`}
                 aria-label="Search"
             >
