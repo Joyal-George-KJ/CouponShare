@@ -39,6 +39,7 @@ class AppwriteConfig {
         try {
             // Check if user is logged in
             const user = await this.account.get();
+            await this.createUserDB({id: user.$id, email: user.email, name: user.name});
             console.log("User logged in, sending verification email...", user);
             try {
                 // Send verification email
