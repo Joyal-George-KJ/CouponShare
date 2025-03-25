@@ -17,9 +17,9 @@ function Home() {
                 <NavLink to={"/stores"} className="bg-blue-500 text-white px-6 py-3 mobile:text-base md:text-lg font-medium rounded-lg hover:bg-blue-600 transition-all shadow shadow-white">
                     Browse Coupons
                 </NavLink>
-                <button className="bg-white text-blue-500 px-6 py-3 mobile:text-base md:text-lg font-medium rounded-lg hover:bg-neutral-200 transition-all shadow shadow-blue-600">
+                <NavLink to={"/stores"} className="bg-white text-blue-500 px-6 py-3 mobile:text-base md:text-lg font-medium rounded-lg hover:bg-neutral-200 transition-all shadow shadow-blue-600">
                     Share a Coupon
-                </button>
+                </NavLink>
             </div>
         </div>
     );
