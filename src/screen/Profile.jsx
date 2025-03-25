@@ -6,9 +6,6 @@ const Profile = () => {
     const [editMode, setEditMode] = useState(false);
     const user = useSelector((state) => state.user.user);
     const [profile, setProfile] = useState({
-        // picture: "https://via.placeholder.com/100",
-        // name: "John Doe",
-        // email: "johndoe@example.com",
         bio: "Passionate deal hunter and coupon sharer!",
         sharedCoupons: 15,
         revenueGenerated: 120.50,
