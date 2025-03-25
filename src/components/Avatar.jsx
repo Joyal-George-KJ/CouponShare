@@ -13,7 +13,7 @@ function Avatar({pic, className="w-24 h-24 rounded-full border-2 border-neutral-
         );
     } else {
         return (
-            <div className={`${className} aspect-square flex items-center justify-center bg-neutral-700 text-white`}>
+            <div className={`${className} mobile:w-12 mobile:h-12 aspect-square flex items-center justify-center bg-neutral-700 text-white`}>
                 {pic?.split(' ').map((word) => word.charAt(0)).join('')}
             </div>
         );
