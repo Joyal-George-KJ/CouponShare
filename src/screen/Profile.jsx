@@ -71,20 +71,20 @@ const Profile = () => {
 
             <div className="grid grid-cols-2 gap-4 mt-6">
                 <div className="bg-neutral-700 p-4 rounded-lg text-center">
-                    <h3 className="text-lg font-bold">Shared Coupons</h3>
-                    <p className="text-2xl font-semibold">
+                    <h3 className="text-lg mobile:text-base font-bold">Shared Coupons</h3>
+                    <p className="text-2xl mobile:text-lg font-semibold">
                         {profile.sharedCoupons}
                     </p>
                 </div>
                 <div className="bg-neutral-700 p-4 rounded-lg text-center">
-                    <h3 className="text-lg font-bold">Revenue Generated</h3>
-                    <p className="text-2xl font-semibold">
+                    <h3 className="text-lg mobile:text-base font-bold">Revenue Generated</h3>
+                    <p className="text-2xl mobile:text-lg font-semibold">
                         ₹{profile.revenueGenerated.toFixed(2)}
                     </p>
                 </div>
                 <div className="bg-neutral-700 p-4 rounded-lg text-center col-span-2">
-                    <h3 className="text-lg font-bold">Saved Coupons</h3>
-                    <p className="text-2xl font-semibold">
+                    <h3 className="text-lg mobile:text-base font-bold">Saved Coupons</h3>
+                    <p className="text-2xl mobile:text-lg font-semibold">
                         {profile.savedCoupons}
                     </p>
                 </div>
