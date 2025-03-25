@@ -163,6 +163,7 @@ class AppwriteConfig {
                             id: data.id,
                             email: data.email,
                             name: data.name,
+                            avatar: data.avatar ? data.avatar : null
                         }
                     );
                 } catch (error) {
