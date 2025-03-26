@@ -5,7 +5,7 @@ import AppwriteConfig from "../constants/AppwriteConf";
 function GoogleAuth({ text }) {
     
     const onClick = async () => {
-        const loginConfig = new AppwriteConfig('https://cloud.appwrite.io/v1', import.meta.env.VITE_APPWRITE_PROJECT_ID);
+        const loginConfig = new AppwriteConfig(import.meta.env.VITE_APPWRITE_REDIRECT_URL, import.meta.env.VITE_APPWRITE_PROJECT_ID);
         loginConfig.login();
     }
 
