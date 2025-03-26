@@ -190,18 +190,19 @@ class AppwriteConfig {
 
     async getUserDB({ id }) {
         try {
-            try {
-                this.database = new Databases(this.client);
-                return await this.database.listDocuments(
-                    import.meta.env.VITE_APPWRITE_DATABASE_ID,
-                    import.meta.env.VITE_APPWRITE_USER_COLLECTION_ID,
-                    [Query.equal("id", id)]
-                );
-            } catch (error) {
-                console.error("Failed to create document:", error);
+            this.database = new Databases(this.client);
+            const res = await this.database.listDocuments(
+                import.meta.env.VITE_APPWRITE_DATABASE_ID,
+                import.meta.env.VITE_APPWRITE_USER_COLLECTION_ID,
+                [Query.equal("id", id)]
+            );
+            
+            if (res.total !== 0) {
+                return res;
             }
+            return false;
         } catch (error) {
-            console.error("Failed to get user profile:", error);
+            console.error("Failed to create document:", error);
         }
     }
 
