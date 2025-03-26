@@ -11,7 +11,7 @@ const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault();
         const loginConfig = new AppwriteConfig(
-            "https://cloud.appwrite.io/v1",
+            import.meta.env.VITE_APPWRITE_REDIRECT_URL,
             import.meta.env.VITE_APPWRITE_PROJECT_ID
         );
         loginConfig.login({ email, password });

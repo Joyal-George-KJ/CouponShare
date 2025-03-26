@@ -39,7 +39,7 @@ function AddCoupon() {
         const validateURL =
             /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
         const config = new AppwriteConfig(
-            "https://cloud.appwrite.io/v1",
+            import.meta.env.VITE_APPWRITE_REDIRECT_URL,
             import.meta.env.VITE_APPWRITE_PROJECT_ID
         );
         let resp;

@@ -12,7 +12,7 @@ function Stores() {
     const [coupons, setCoupons] = useState([]);
     const [loading, setLoading] = useState(true);
     const Auth = new AppwriteConfig(
-        "https://cloud.appwrite.io/v1",
+        import.meta.env.VITE_APPWRITE_REDIRECT_URL,
         import.meta.env.VITE_APPWRITE_PROJECT_ID
     );
 

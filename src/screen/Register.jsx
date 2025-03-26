@@ -14,7 +14,7 @@ const Register = () => {
     const handleRegister = (e) => {
         e.preventDefault();
         const registerConfig = new AppwriteConfig(
-            "https://cloud.appwrite.io/v1",
+            import.meta.env.VITE_APPWRITE_REDIRECT_URL,
             import.meta.env.VITE_APPWRITE_PROJECT_ID
         );
         registerConfig.register(email, password, username);
