@@ -12,7 +12,7 @@ function Layout() {
     const [loading, setLoading] = useState(true);
 
     const config = new AppwriteConfig(
-        "https://cloud.appwrite.io/v1",
+        import.meta.env.VITE_APPWRITE_REDIRECT_URL,
         import.meta.env.VITE_APPWRITE_PROJECT_ID
     );
 
