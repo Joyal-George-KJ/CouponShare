@@ -107,7 +107,8 @@ class AppwriteConfig {
             console.log("User profile from Appwrite:", user);
 
             // Try to get the Google OAuth details if available
-            let userDetails = await this.getUserDB({id: user.userId}).then((res) => res.documents[0]);
+            let userDetails = await this.getUserDB({ id: user.userId });
+            userDetails = userDetails.documents[0];
 
             return userDetails
                 ? {
