@@ -39,7 +39,11 @@ class AppwriteConfig {
         try {
             // Check if user is logged in
             const user = await this.account.get();
-            await this.createUserDB({id: user.$id, email: user.email, name: user.name});
+            await this.createUserDB({
+                id: user.$id,
+                email: user.email,
+                name: user.name,
+            });
             console.log("User logged in, sending verification email...", user);
             try {
                 // Send verification email
@@ -68,7 +72,9 @@ class AppwriteConfig {
             console.log("No user logged in, proceeding with login...");
             if (data) {
                 // User is not logged in, so initiate Email Password login
-                console.log("No user logged in, proceeding with Email Password Login...");
+                console.log(
+                    "No user logged in, proceeding with Email Password Login..."
+                );
                 this.account.createEmailPasswordSession(
                     data.email,
                     data.password
@@ -103,7 +109,14 @@ class AppwriteConfig {
             // Try to get the Google OAuth details if available
             let userDetails = await this.getUserDB({id: user.userId}).then((res) => res.documents[0]);
 
-            return userDetails ? {name: userDetails.name, id: userDetails.name, email: userDetails.email, avatar: userDetails.avatar} : false;
+            return userDetails
+                ? {
+                      name: userDetails.name,
+                      id: userDetails.name,
+                      email: userDetails.email,
+                      avatar: userDetails.avatar,
+                  }
+                : false;
         } catch (err) {
             return false;
         }
@@ -163,7 +176,7 @@ class AppwriteConfig {
                             id: data.id,
                             email: data.email,
                             name: data.name,
-                            avatar: data.avatar ? data.avatar : null
+                            avatar: data.avatar ? data.avatar : null,
                         }
                     );
                 } catch (error) {
