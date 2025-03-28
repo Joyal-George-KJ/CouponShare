@@ -210,6 +210,30 @@ class AppwriteConfig {
         }
     }
 
+    
+    async updateUserDB ({
+        documentId, key, value
+    }) {
+        try {
+
+            this.database = new Databases(this.client);
+            const res = await this.database.updateDocument(
+                import.meta.env.VITE_APPWRITE_DATABASE_ID,
+                import.meta.env.VITE_APPWRITE_USER_COLLECTION_ID,
+                documentId,
+                {
+                    [key]: value
+                }
+            )
+
+            console.log("updatad Response: ",res);
+            
+
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     async getUserDB({ id }) {
         try {
             this.database = new Databases(this.client);
