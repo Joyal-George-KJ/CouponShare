@@ -91,6 +91,27 @@ class AppwriteConfig {
         }
     }
 
+    async googleProfileFetch(token) {
+        // Fetch Google profile using the provided ID
+        try {
+            let response = await fetch(
+                "https://www.googleapis.com/oauth2/v3/userinfo?access_token=" +
+                    token
+            ).then((res) => res.json());
+            if (response?.error) {
+                console.log("Credentials expired Re-Log and try again!");
+                
+            } else {
+                console.log("Google profile fetched successfully:", response);
+                return response;
+            }
+
+        } catch (error) {
+            console.error("Failed to fetch Google profile:", error);
+        }
+    }
+
+
     async logout() {
         try {
             await this.account.deleteSession("current");
