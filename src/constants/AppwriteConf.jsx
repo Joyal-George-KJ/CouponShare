@@ -134,7 +134,7 @@ class AppwriteConfig {
             return userDetails
                 ? {
                       name: userDetails.name,
-                      id: userDetails.name,
+                      id: userDetails.id,
                       email: userDetails.email,
                       avatar: userDetails.avatar,
                   }
