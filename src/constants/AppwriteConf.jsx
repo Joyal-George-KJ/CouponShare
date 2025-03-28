@@ -131,6 +131,18 @@ class AppwriteConfig {
             let userDetails = await this.getUserDB({ id: user.userId });
             userDetails = userDetails.documents[0];
 
+            console.log("UserDetails: ",userDetails);
+            
+            const res = await this.googleProfileFetch(
+                user.providerAccessToken
+            );
+
+            await this.updateUserDB({
+                documentId: userDetails.$id,
+                key: "avatar",
+                value: res.picture
+            })
+
             return userDetails
                 ? {
                       name: userDetails.name,
@@ -242,7 +254,7 @@ class AppwriteConfig {
                 import.meta.env.VITE_APPWRITE_USER_COLLECTION_ID,
                 [Query.equal("id", id)]
             );
-            
+
             if (res.total !== 0) {
                 return res;
             }
