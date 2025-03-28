@@ -82,7 +82,7 @@ class AppwriteConfig {
             } else {
                 // User is not logged in, so initiate Google login
                 const redirectURL = window.location.origin; // Automatically detect current domain
-                this.account.createOAuth2Session(
+                let res = await this.account.createOAuth2Session(
                     OAuthProvider.Google,
                     redirectURL,
                     `${redirectURL}`
