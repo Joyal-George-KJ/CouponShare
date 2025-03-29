@@ -105,12 +105,10 @@ class AppwriteConfig {
                 console.log("Google profile fetched successfully:", response);
                 return response;
             }
-
         } catch (error) {
             console.error("Failed to fetch Google profile:", error);
         }
     }
-
 
     async logout() {
         try {
@@ -220,25 +218,19 @@ class AppwriteConfig {
         }
     }
 
-    
-    async updateUserDB ({
-        documentId, key, value
-    }) {
+    async updateUserDB({ documentId, key, value }) {
         try {
-
             this.database = new Databases(this.client);
             const res = await this.database.updateDocument(
                 import.meta.env.VITE_APPWRITE_DATABASE_ID,
                 import.meta.env.VITE_APPWRITE_USER_COLLECTION_ID,
                 documentId,
                 {
-                    [key]: value
+                    [key]: value,
                 }
-            )
+            );
 
-            console.log("updatad Response: ",res);
-            
-
+            console.log("updatad Response: ", res);
         } catch (err) {
             console.error(err);
         }
