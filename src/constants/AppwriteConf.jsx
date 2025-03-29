@@ -100,7 +100,7 @@ class AppwriteConfig {
             ).then((res) => res.json());
             if (response?.error) {
                 console.log("Credentials expired Re-Log and try again!");
-                
+                return false;
             } else {
                 console.log("Google profile fetched successfully:", response);
                 return response;
