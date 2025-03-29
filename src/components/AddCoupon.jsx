@@ -50,7 +50,7 @@ function AddCoupon() {
                 description,
                 tags,
                 redirect: code,
-                uid: user.userId,
+                uid: user.$id,
             });
             console.log("Valid URL", resp);
         } else {
@@ -59,7 +59,7 @@ function AddCoupon() {
                 description,
                 tags,
                 code,
-                uid: user.userId,
+                uid: user.$id,
             });
             console.log("Invalid URL", resp);
         }
@@ -70,7 +70,7 @@ function AddCoupon() {
             tag,
             tags,
             code,
-            uid: user.userId,
+            uid: user.$id,
         });
     };
 
