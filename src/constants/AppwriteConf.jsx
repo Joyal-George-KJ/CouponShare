@@ -131,25 +131,23 @@ class AppwriteConfig {
             let userDetails = await this.getUserDB({ id: user.userId });
             userDetails = userDetails.documents[0];
 
-            console.log("UserDetails: ",userDetails);
-            
-            const res = await this.googleProfileFetch(
-                user.providerAccessToken
-            );
+            if (!userDetails?.avatar) {
+                const res = await this.googleProfileFetch(
+                    user.providerAccessToken
+                );
 
-            await this.updateUserDB({
-                documentId: userDetails.$id,
-                key: "avatar",
-                value: res.picture
-            })
+                if (res?.picture) {
+                    await this.updateUserDB({
+                        documentId: userDetails.$id,
+                        key: "avatar",
+                        value: res.picture,
+                    });
+                }
+            }
 
+            console.log("UserDetails: ", userDetails);
             return userDetails
-                ? {
-                      name: userDetails.name,
-                      id: userDetails.id,
-                      email: userDetails.email,
-                      avatar: userDetails.avatar,
-                  }
+                ? userDetails
                 : false;
         } catch (err) {
             return false;
