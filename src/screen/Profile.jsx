@@ -109,6 +109,11 @@ const Profile = () => {
                     </p>
                 </div>
             </div>
+            <div className="flex mt-4">
+                {coupons?.map((val, ind) => (
+                    <CouponCard {...val} key={ind} />
+                ))}
+            </div>
         </div>
     );
 };
