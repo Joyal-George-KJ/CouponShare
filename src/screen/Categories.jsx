@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import Tags from "../components/Tags";
 import AppwriteConfig from "../constants/AppwriteConf";
-import Loader from "../components/Loader";
+import TagLoader from "../components/TagLoader";
 
 const Categories = () => {
     const [sortType, setSortType] = useState("A-Z");
     const [categories, setCategories] = useState([]);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         let config = new AppwriteConfig(
@@ -39,12 +39,6 @@ const Categories = () => {
         return 0;
     });
 
-    if (loading) {
-        return (
-            <Loader />
-        );
-    }
-
     return (
         <div>
             <div className="flex justify-between items-center">
@@ -70,13 +64,17 @@ const Categories = () => {
 
             {/* Category List */}
             <div className="mt-6 flex flex-row flex-wrap gap-4">
-                {sortedCategories.map((category, index) => (
-                    <Tags
-                        name={category.tag}
-                        count={category.count}
-                        key={index}
-                    />
-                ))}
+                {loading
+                    ? [...Array(2).keys()].map((val, ind) => (
+                          <TagLoader key={ind} />
+                      ))
+                    : sortedCategories.map((category, index) => (
+                          <Tags
+                              name={category.tag}
+                              count={category.count}
+                              key={index}
+                          />
+                      ))}
             </div>
         </div>
     );
