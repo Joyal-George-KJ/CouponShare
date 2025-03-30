@@ -25,7 +25,6 @@ const Profile = () => {
     );
 
     useEffect(() => {
-
         function fetchProfile() {
             const profileData = user;
             if (profileData) {
@@ -58,9 +57,23 @@ const Profile = () => {
                             className="p-2 bg-neutral-700 text-white rounded-md w-full"
                         />
                     ) : (
-                        <h2 className="text-2xl font-bold">{profile.name}</h2>
+                        <h2 className="laptop:text-2xl font-bold mobile:text-lg">
+                            {profile.name}
+                        </h2>
                     )}
-                    <p className="text-neutral-400">{profile.email}</p>
+                    {/* <p className="text-neutral-400 ">{profile.email}</p> */}
+                    <div >
+                        {editMode ? (
+                            <textarea
+                                name="bio"
+                                value={profile.bio}
+                                onChange={handleChange}
+                                className="w-full p-2 bg-neutral-700 text-white rounded-md"
+                            />
+                        ) : (
+                            <p className="text-neutral-300">{profile.bio}</p>
+                        )}
+                    </div>
                 </div>
                 <button
                     className="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-md font-medium"
@@ -69,34 +82,28 @@ const Profile = () => {
                     {editMode ? "Save" : "Edit"}
                 </button>
             </div>
-            <div className="mt-4">
-                {editMode ? (
-                    <textarea
-                        name="bio"
-                        value={profile.bio}
-                        onChange={handleChange}
-                        className="w-full p-2 bg-neutral-700 text-white rounded-md"
-                    />
-                ) : (
-                    <p className="text-neutral-300">{profile.bio}</p>
-                )}
-            </div>
 
             <div className="grid grid-cols-2 gap-4 mt-6">
                 <div className="bg-neutral-700 p-4 rounded-lg text-center">
-                    <h3 className="text-lg mobile:text-base font-bold">Shared Coupons</h3>
+                    <h3 className="text-lg mobile:text-base font-bold">
+                        Shared Coupons
+                    </h3>
                     <p className="text-2xl mobile:text-lg font-semibold">
                         {profile.sharedCoupons}
                     </p>
                 </div>
                 <div className="bg-neutral-700 p-4 rounded-lg text-center">
-                    <h3 className="text-lg mobile:text-base font-bold">Revenue Generated</h3>
+                    <h3 className="text-lg mobile:text-base font-bold">
+                        Revenue Generated
+                    </h3>
                     <p className="text-2xl mobile:text-lg font-semibold">
                         ₹{profile.revenueGenerated.toFixed(2)}
                     </p>
                 </div>
                 <div className="bg-neutral-700 p-4 rounded-lg text-center col-span-2">
-                    <h3 className="text-lg mobile:text-base font-bold">Saved Coupons</h3>
+                    <h3 className="text-lg mobile:text-base font-bold">
+                        Saved Coupons
+                    </h3>
                     <p className="text-2xl mobile:text-lg font-semibold">
                         {profile.savedCoupons}
                     </p>
