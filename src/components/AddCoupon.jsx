@@ -50,7 +50,9 @@ function AddCoupon() {
                 description,
                 tags,
                 redirect: code,
-                uid: user.$id,
+                uid: user.id,
+                userName: user.name,
+                userImg: user.avatar
             });
             console.log("Valid URL", resp);
         } else {
@@ -59,7 +61,9 @@ function AddCoupon() {
                 description,
                 tags,
                 code,
-                uid: user.$id,
+                uid: user.id,
+                userName: user.name,
+                userImg: user.avatar
             });
             console.log("Invalid URL", resp);
         }
@@ -70,7 +74,9 @@ function AddCoupon() {
             tag,
             tags,
             code,
-            uid: user.$id,
+            uid: user.id,
+            userName: user.name,
+            userImg: user.avatar
         });
     };
 
