@@ -21,11 +21,9 @@ const Categories = () => {
                     setCategories(res.documents);
                     setLoading(false);
                 }
-                
             } catch (error) {
                 setLoading(true);
                 console.error("Failed to get categories:", error);
-                
             }
         };
         getTags();
@@ -33,8 +31,10 @@ const Categories = () => {
 
     // Sorting Function
     const sortedCategories = [...categories].sort((a, b) => {
-        if (a.name && b.name && sortType === "A-Z") return a.name.localeCompare(b.name);
-        if (a.name && b.name && sortType === "Z-A") return b.name.localeCompare(a.name);
+        if (a.name && b.name && sortType === "A-Z")
+            return a.name.localeCompare(b.name);
+        if (a.name && b.name && sortType === "Z-A")
+            return b.name.localeCompare(a.name);
         if (a.name && b.name && sortType === "Count") return b.count - a.count;
         return 0;
     });
