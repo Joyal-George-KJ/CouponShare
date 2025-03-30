@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import CouponCard from "../components/CouponCard";
 import AddCoupon from "../components/AddCoupon";
 import AppwriteConfig from "../constants/AppwriteConf";
-import Loader from "../components/Loader";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import CouponLoader from "../components/CouponLoader";
 
 function Stores() {
     const { key, value } = useParams();
@@ -18,7 +18,7 @@ function Stores() {
 
     useEffect(() => {
         fetchCoupons();
-    }, [])
+    }, []);
 
     const fetchCoupons = async () => {
         try {
@@ -31,19 +31,19 @@ function Stores() {
         }
     };
 
-    if (loading) {
-        return <Loader />;
-    }
-
     return (
         <>
             <div className="flex justify-between py-2 mb-4">
                 {user && <AddCoupon />}
             </div>
             <div className="grid laptop:grid-cols-3 mobile:grid-cols-1 tablet:grid-cols-2 gap-4">
-                {
-                    coupons.map((val, ind) => <CouponCard key={ind} {...val} />)
-                }
+                {loading
+                    ? [...Array(6).keys()].map((val, ind) => (
+                          <CouponLoader key={ind} />
+                      ))
+                    : coupons.map((val, ind) => (
+                          <CouponCard key={ind} {...val} />
+                      ))}
             </div>
         </>
     );
