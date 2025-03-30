@@ -21,7 +21,6 @@ function Stores() {
     }, [])
 
     const fetchCoupons = async () => {
-
         try {
             const res = await Auth.getCoupons(key, value);
             setLoading(false);
@@ -30,7 +29,6 @@ function Stores() {
             setLoading(true);
             console.error("Failed to get coupons:", error);
         }
-
     };
 
     if (loading) {
