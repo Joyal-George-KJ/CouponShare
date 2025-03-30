@@ -1,6 +1,6 @@
 import React from "react";
 
-function Avatar({pic, className="w-24 h-24 rounded-full border-2 border-neutral-500"}) {
+function Avatar({pic, className="laptop:w-24 laptop:h-24 mobile:w-16 mobile:h-16 rounded-full border-2 border-neutral-500"}) {
     const validateURL = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
     pic = ((pic && validateURL.test(pic)) ? pic : pic?.split(' ').map((word) => word.charAt(0)).join(''));
     
