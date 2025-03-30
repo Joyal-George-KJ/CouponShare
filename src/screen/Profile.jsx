@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import Avatar from "../components/Avatar";
 import { useSelector } from "react-redux";
+import CouponCard from "../components/CouponCard";
+import AppwriteConfig from "../constants/AppwriteConf";
 
 const Profile = () => {
     const [editMode, setEditMode] = useState(false);
+    const [coupons, setCoupons] = useState([]);
     const user = useSelector((state) => state.user.user);
     const [profile, setProfile] = useState({
         bio: "Passionate deal hunter and coupon sharer!",
@@ -16,6 +19,11 @@ const Profile = () => {
         setProfile({ ...profile, [e.target.name]: e.target.value });
     };
 
+    const config = new AppwriteConfig(
+        import.meta.env.VITE_APPWRITE_REDIRECT_URL,
+        import.meta.env.VITE_APPWRITE_PROJECT_ID
+    );
+
     useEffect(() => {
 
         function fetchProfile() {
@@ -27,6 +35,11 @@ const Profile = () => {
                 }));
             }
         }
+
+        (async () => {
+            const res = await config.getCoupons("uid", user.id);
+            setCoupons(res.documents);
+        })();
 
         fetchProfile();
     }, []);
