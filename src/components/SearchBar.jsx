@@ -39,7 +39,6 @@ function SearchBar() {
                         name="searchSelector"
                         className="text-neutral-200 border border-neutral-600 bg-neutral-800 p-2 rounded-l-md outline-0"
                     >
-                        <option value="all">All</option>
                         <option value="title">Name</option>
                         <option value="tags">Tag</option>
                     </select>
