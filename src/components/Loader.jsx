@@ -7,15 +7,6 @@ function Loader({ text }) {
     
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setLoadingText((prev) => {
-                if (prev === "Loading") return "Loading.";
-                if (prev === "Loading.") return "Loading..";
-                if (prev === "Loading..") return "Loading...";
-                return "Loading";
-            });
-        }, 1000);
-
         const loadInterval = setInterval(() => {
             setLoader(prev => {
                 if (prev >= 100) {
@@ -27,7 +18,6 @@ function Loader({ text }) {
         }, 100);
 
         return () => {
-            clearInterval(interval);
             clearInterval(loadInterval);
         };
     }, []);
