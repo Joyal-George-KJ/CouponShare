@@ -10,6 +10,7 @@ function Avatar({pic, className="laptop:w-24 laptop:h-24 mobile:w-16 mobile:h-16
                 src={pic}
                 alt="Profile"
                 className={className}
+                referrerPolicy="no-referrer"
             />
         );
     } else {
