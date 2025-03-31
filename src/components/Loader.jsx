@@ -15,7 +15,7 @@ function Loader({ text }) {
                     return prev+5;
                 }
             });
-        }, 100);
+        }, 50);
 
         return () => {
             clearInterval(loadInterval);
