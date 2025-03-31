@@ -184,7 +184,7 @@ class AppwriteConfig {
                 return await this.database.listDocuments(
                     import.meta.env.VITE_APPWRITE_DATABASE_ID,
                     import.meta.env.VITE_APPWRITE_COUPON_COLLECTION_ID,
-                    [key && value ? Query.equal(key, value) : Query.limit(25)]
+                    [key && value ? Query.contains(key, value) : Query.limit(25)]
                 );
             } catch (error) {
                 console.error("Failed to create document:", error);
