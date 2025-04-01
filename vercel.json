@@ -1,0 +1,15 @@
+{
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "status": 404,
+            "dest": "/404.html"
+        }
+    ]
+}
