@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import { Provider } from "react-redux";
 import store from "./util/store";
+import NotFound from "./components/404";
 const Home = lazy(() => import("./screen/Home"));
 const About = lazy(() => import("./screen/About"));
 const Stores = lazy(() => import("./screen/Stores"));
@@ -29,6 +30,7 @@ createRoot(document.getElementById("root")).render(
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/settings" element={<Settings />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="*" element={<NotFound />} />
                 </Route>
             </Routes>
         </BrowserRouter>
