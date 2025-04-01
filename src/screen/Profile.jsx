@@ -3,8 +3,10 @@ import Avatar from "../components/Avatar";
 import { useSelector } from "react-redux";
 import CouponCard from "../components/CouponCard";
 import AppwriteConfig from "../constants/AppwriteConf";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+    const navigate = useNavigate();
     const [editMode, setEditMode] = useState(false);
     const [coupons, setCoupons] = useState([]);
     const user = useSelector((state) => state.user.user);
@@ -32,6 +34,8 @@ const Profile = () => {
                     ...prev,
                     ...profileData,
                 }));
+            } else {
+                navigate('/401')
             }
         }
 
