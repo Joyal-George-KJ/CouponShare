@@ -5,6 +5,7 @@ import AppwriteConfig from "../constants/AppwriteConf";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import CouponLoader from "../components/CouponLoader";
+import SearchBar from "../components/SearchBar";
 
 function Stores() {
     const { key, value } = useParams();
