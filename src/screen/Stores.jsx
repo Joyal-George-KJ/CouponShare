@@ -34,7 +34,7 @@ function Stores() {
     return (
         <>
             <div className="flex justify-between py-2 mb-4">
-                {user && <AddCoupon />}
+                {user ? <AddCoupon /> : <SearchBar />}
             </div>
             <div className="grid laptop:grid-cols-3 mobile:grid-cols-1 tablet:grid-cols-2 gap-4">
                 {loading
