@@ -37,7 +37,8 @@ function SearchBar() {
                     <select
                         id="searchSelector"
                         name="searchSelector"
-                        className="text-neutral-200 border border-neutral-600 bg-neutral-800 p-2 rounded-l-md outline-0"
+                        disabled
+                        className="text-neutral-200 appearance-none border border-neutral-600 bg-neutral-800 p-2 rounded-l-md outline-0"
                     >
                         <option value="title">Name</option>
                         <option value="tags">Tag</option>
