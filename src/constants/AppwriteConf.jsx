@@ -149,7 +149,6 @@ class AppwriteConfig {
                 : false;
         } catch (err) {
             console.error("Failed to fetch profile");
-            
             return false;
         }
     }
