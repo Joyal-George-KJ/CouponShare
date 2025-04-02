@@ -72,7 +72,7 @@ const Profile = () => {
                                 name="bio"
                                 value={profile.bio}
                                 onChange={handleChange}
-                                className="w-full p-2 bg-neutral-700 text-white rounded-md"
+                                className="w-full p-2 mt-4 bg-neutral-700 text-white rounded-md"
                             />
                         ) : (
                             <p className="text-neutral-300">{profile.bio}</p>
