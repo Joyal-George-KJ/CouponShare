@@ -35,19 +35,37 @@ class AppwriteConfig {
         }
     }
 
-    async forgotPassword(email) {
+    newPasswordSet( userID, secret, password ) {
+        const promise = this.account.updateRecovery(
+            userID,
+            secret,
+            password
+        );
+        
+        promise.then(function (response) {
+            console.log(response); // Success
+            return response
+        }, function (error) {
+            console.log(error); // Failure
+            return error
+        });
+    }
+
+    async forgotPassword(data) {
         try {
-            const url = location.origin + '/recovery'
-            const res = await this.account.createRecovery(email, url);
+            if (data.userID && data.secret && data.password) {
+                return this.newPasswordSet(data.userID, data.secret, data.password);
 
-            if (res) {
-                console.log("Succesfully sent Recovery Link: ",res);
+            } else {
+                const url = location.origin + "/recovery";
+                const res = await this.account.createRecovery(data.email, url);
+
+                if (res) {
+                    console.log("Succesfully sent Recovery Link: ", res);
+                }
             }
-
-
         } catch (err) {
             console.error(err);
-            
         }
     }
 
@@ -160,9 +178,7 @@ class AppwriteConfig {
             }
 
             console.log("UserDetails: ", userDetails);
-            return userDetails
-                ? userDetails
-                : false;
+            return userDetails ? userDetails : false;
         } catch (err) {
             console.error("Failed to fetch profile");
             return false;
@@ -199,7 +215,11 @@ class AppwriteConfig {
                 return await this.database.listDocuments(
                     import.meta.env.VITE_APPWRITE_DATABASE_ID,
                     import.meta.env.VITE_APPWRITE_COUPON_COLLECTION_ID,
-                    [key && value ? Query.contains(key, value) : Query.limit(25)]
+                    [
+                        key && value
+                            ? Query.contains(key, value)
+                            : Query.limit(25),
+                    ]
                 );
             } catch (error) {
                 console.error("Failed to create document:", error);
