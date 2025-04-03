@@ -9,6 +9,7 @@ import NotFound from "./components/404";
 import Unauthorized from "./components/401";
 import Forbidden from "./components/403";
 import ServerError from "./components/500";
+import Recovery from "./screen/Recovery";
 const Home = lazy(() => import("./screen/Home"));
 const About = lazy(() => import("./screen/About"));
 const Stores = lazy(() => import("./screen/Stores"));
@@ -36,6 +37,7 @@ createRoot(document.getElementById("root")).render(
                         <Route path="/profile" element={<Profile />} />
                         <Route path="/settings" element={<Settings />} />
                         <Route path="/about" element={<About />} />
+                        <Route path="/recovery" element={<Recovery />} />
                     </Route>
                     <Route path="/401" element={<Unauthorized />} />
                     <Route path="/403" element={<Forbidden />} />
