@@ -35,6 +35,22 @@ class AppwriteConfig {
         }
     }
 
+    async forgotPassword(email) {
+        try {
+            const url = location.origin + '/recovery'
+            const res = await this.account.createRecovery(email, url);
+
+            if (res) {
+                console.log("Succesfully sent Recovery Link: ",res);
+            }
+
+
+        } catch (err) {
+            console.error(err);
+            
+        }
+    }
+
     async userVerification(data) {
         try {
             // Check if user is logged in
