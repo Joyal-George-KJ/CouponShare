@@ -44,6 +44,9 @@ const Login = () => {
                         key={"1"}
                         password={password}
                     />
+                    <div className="w-full flex justify-end">
+                        <NavLink className="text-neutral-300 underline cursor-pointer hover:text-neutral-400 transition-colors ease-in-out" to="/recovery">Forgot Password?</NavLink>
+                    </div>
 
                     <button
                         type="submit"
