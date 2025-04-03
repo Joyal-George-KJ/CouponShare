@@ -4,8 +4,8 @@ import PasswordInput from "../components/PasswordInput";
 
 function Recovery() {
     const [email, setEmail] = useState("");
-    const [secret, setSecret] = useState('');
-    const [userID, setUserID] = useState('');
+    const [secret, setSecret] = useState("");
+    const [userID, setUserID] = useState("");
     const [password, setPassword] = useState("");
 
     const config = new AppwriteConfig(
@@ -15,15 +15,18 @@ function Recovery() {
 
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
-        setSecret(prev => urlParams.get('secret'));
-        setUserID(prev => urlParams.get('userId'));
-    
-    }, [])
-    
+        setSecret((prev) => urlParams.get("secret"));
+        setUserID((prev) => urlParams.get("userId"));
+    }, []);
 
     const handleLogin = (e) => {
         e.preventDefault();
-        const res = config.forgotPassword(email);
+        let res;
+        if (secret && userID) {
+            res = config.forgotPassword({ userID, secret, password });
+        } else {
+            res = config.forgotPassword({ email: email });
+        }
         console.log(res);
     };
 
@@ -34,14 +37,25 @@ function Recovery() {
                     Password Recovery
                 </h2>
                 <form className="mt-6 space-y-4" onSubmit={handleLogin}>
-                    {secret && userID ? <PasswordInput placeholder={"New Password"} password={password} setPassword={setPassword}  /> :<input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
-                        required
-                    />}
+                    {secret && userID ? (
+                        <PasswordInput
+                            pattern={
+                                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_=+-]).{8,20}$/i
+                            }
+                            placeholder={"New Password"}
+                            password={password}
+                            setPassword={setPassword}
+                        />
+                    ) : (
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
+                            required
+                        />
+                    )}
                     <button
                         type="submit"
                         className="w-full bg-blue-500 py-3 rounded-lg text-lg font-medium hover:bg-blue-600 transition-all cursor-pointer"
