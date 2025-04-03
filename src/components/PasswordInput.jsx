@@ -6,7 +6,6 @@ function PasswordInput({ pattern, password, setPassword, placeholder }) {
     const [type, setType] = useState("password");
     const changeHandle = (e) => {
         setPassword(e.target.value);
-        console.log(pattern.test(e.target.value));
 
         if (e.target.value.length < 8) {
             setToggle(true);
