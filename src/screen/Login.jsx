@@ -37,7 +37,7 @@ const Login = () => {
                     />
                     <PasswordInput
                         pattern={
-                            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_=+-]).{8,12}$/i
+                            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_=+-]).{8,20}$/i
                         }
                         setPassword={setPassword}
                         placeholder={"Password"}

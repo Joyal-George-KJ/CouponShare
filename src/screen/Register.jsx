@@ -46,7 +46,7 @@ const Register = () => {
                         className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
                         required
                     />
-                    <PasswordInput pattern={/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_=+-]).{8,12}$/i} setPassword={setPassword} placeholder={"Password"} key={'1'} password={password} />
+                    <PasswordInput pattern={/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_=+-]).{8,20}$/i} setPassword={setPassword} placeholder={"Password"} key={'1'} password={password} />
                     <button
                         type="submit"
                         className="w-full bg-blue-500 py-3 rounded-lg text-lg font-medium hover:bg-blue-600 transition-all cursor-pointer"
