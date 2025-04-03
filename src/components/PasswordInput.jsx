@@ -1,4 +1,4 @@
-import { EyeClosedIcon, EyeIcon, Info } from "lucide-react";
+import { EyeClosedIcon, EyeIcon } from "lucide-react";
 import React, { useState } from "react";
 
 function PasswordInput({ pattern, password, setPassword, placeholder }) {
