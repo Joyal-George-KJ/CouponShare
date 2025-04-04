@@ -26,7 +26,7 @@ const Navbar = () => {
         };
         checkAuth();
         setIsOpen(false);
-    }, []);
+    }, [user]);
 
     const handleLogout = async () => {
         try {
