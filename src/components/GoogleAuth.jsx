@@ -1,12 +1,17 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import AppwriteConfig from "../constants/AppwriteConf";
+import { setUser } from "../util/slices/userSlice";
+import { useDispatch } from "react-redux";
 
 function GoogleAuth({ text }) {
+    const dispatch = useDispatch();
     
     const onClick = async () => {
         const loginConfig = new AppwriteConfig(import.meta.env.VITE_APPWRITE_REDIRECT_URL, import.meta.env.VITE_APPWRITE_PROJECT_ID);
-        loginConfig.login();
+        const res = await loginConfig.login();
+
+        dispatch(setUser(res));
     }
 
     return (
