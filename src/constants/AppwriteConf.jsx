@@ -102,7 +102,8 @@ class AppwriteConfig {
         try {
             const user = await this.account.get(); // Check if user is already logged in
             console.log("User already logged in:", user);
-            return user;
+            await this.logout();
+            return ;
         } catch (error) {
             console.log("No user logged in, proceeding with login...");
             if (data) {
