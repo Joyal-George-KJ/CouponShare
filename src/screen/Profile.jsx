@@ -4,16 +4,18 @@ import { useSelector } from "react-redux";
 import CouponCard from "../components/CouponCard";
 import AppwriteConfig from "../constants/AppwriteConf";
 import { useNavigate } from "react-router-dom";
+import CouponLoader from "../components/CouponLoader";
 
 const Profile = () => {
     const navigate = useNavigate();
     const [editMode, setEditMode] = useState(false);
     const [coupons, setCoupons] = useState([]);
     const user = useSelector((state) => state.user.user);
+    const [loading, setLoading] = useState(true);
     const [profile, setProfile] = useState({
         bio: "Passionate deal hunter and coupon sharer!",
         sharedCoupons: 15,
-        revenueGenerated: 120.50,
+        revenueGenerated: 120.5,
         savedCoupons: 25,
     });
 
@@ -35,13 +37,20 @@ const Profile = () => {
                     ...profileData,
                 }));
             } else {
-                navigate('/401')
+                navigate("/401");
             }
         }
 
         (async () => {
             const res = await config.getCoupons("uid", user.id);
-            setCoupons(res.documents);
+            if (res.documents) {
+                setCoupons(res.documents);
+                setLoading(false);
+            } else {
+                setTimeout(() => {
+                    setLoading(false);
+                }, 1500);
+            }
         })();
 
         fetchProfile();
@@ -66,7 +75,7 @@ const Profile = () => {
                         </h2>
                     )}
                     {/* <p className="text-neutral-400 ">{profile.email}</p> */}
-                    <div >
+                    <div>
                         {editMode ? (
                             <textarea
                                 name="bio"
@@ -113,10 +122,14 @@ const Profile = () => {
                     </p>
                 </div>
             </div>
-            <div className="flex mt-4">
-                {coupons?.map((val, ind) => (
-                    <CouponCard {...val} key={ind} />
-                ))}
+            <div className="grid laptop:grid-cols-3 mobile:grid-cols-1 tablet:grid-cols-2 gap-4 mt-4">
+                {loading
+                    ? [...Array(6).keys()].map((val, ind) => (
+                          <CouponLoader key={ind} />
+                      ))
+                    : coupons.map((val, ind) => (
+                          <CouponCard key={ind} {...val} />
+                      ))}
             </div>
         </div>
     );
