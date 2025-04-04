@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react";
 import CouponCard from "../components/CouponCard";
 import AddCoupon from "../components/AddCoupon";
 import AppwriteConfig from "../constants/AppwriteConf";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import CouponLoader from "../components/CouponLoader";
 import SearchBar from "../components/SearchBar";
+import { setCoupon } from "../util/slices/couponSlice";
 
 function Stores() {
     const { key, value } = useParams();
+    const dispatch = useDispatch();
     const user = useSelector((state) => state.user.user);
-    const [coupons, setCoupons] = useState([]);
+    const [coupons, setCoupons] = useState(useSelector((state) => state.coupon.coupon) || []);
     const [loading, setLoading] = useState(true);
     const Auth = new AppwriteConfig(
         import.meta.env.VITE_APPWRITE_REDIRECT_URL,
@@ -26,6 +28,7 @@ function Stores() {
             const res = await Auth.getCoupons(key, value);
             setLoading(false);
             setCoupons(res.documents);
+            dispatch(setCoupon(res.documents));
         } catch (error) {
             setLoading(true);
             console.error("Failed to get coupons:", error);
