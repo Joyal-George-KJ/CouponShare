@@ -5,6 +5,7 @@ import AppwriteConfig from "./constants/AppwriteConf";
 import { useDispatch } from "react-redux";
 import { setUser } from "./util/slices/userSlice";
 import Loader from "./components/Loader";
+import Footer from "./screen/Footer";
 
 function Layout() {
     const message = "This is a message from Layout component";
@@ -58,6 +59,7 @@ function Layout() {
                         {message}
                     </div>
                 )}
+                <Footer />
             </div>
         );
     }
