@@ -209,6 +209,29 @@ class AppwriteConfig {
         }
     }
 
+    async updateUser(
+        uid,
+        name,
+        bio
+    ) {
+        try {
+            await this.getUserProfile();
+            const databases = new Databases(this.client);
+
+            const result = await databases.updateDocument(
+                import.meta.env.VITE_APPWRITE_DATABASE_ID,
+                import.meta.env.VITE_APPWRITE_USER_COLLECTION_ID,
+                uid,
+                {
+                    name: name,
+                    bio: bio,
+                }
+            );
+        } catch (error) {
+            console.error("Failed to get user profile:", error);
+        }
+    }
+
     async getCoupons(key, value) {
         try {
             try {
