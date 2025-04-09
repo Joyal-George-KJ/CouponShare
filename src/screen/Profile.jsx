@@ -13,7 +13,9 @@ const Profile = () => {
     const user = useSelector((state) => state.user.user);
     const [loading, setLoading] = useState(true);
     const [profile, setProfile] = useState({
-        bio: "Passionate deal hunter and coupon sharer!",
+        name: user.name,
+        avatar: user.avatar,
+        bio: user.bio,
         sharedCoupons: 15,
         revenueGenerated: 120.5,
         savedCoupons: 25,
@@ -23,11 +25,16 @@ const Profile = () => {
         setProfile({ ...profile, [e.target.name]: e.target.value });
     };
 
+    
     const config = new AppwriteConfig(
         import.meta.env.VITE_APPWRITE_REDIRECT_URL,
         import.meta.env.VITE_APPWRITE_PROJECT_ID
     );
-
+    
+    const handleClick = async () => {
+        let res = await config.updateUser(user.$id, profile?.name, profile.bio);
+        setEditMode(!editMode);
+    }
     useEffect(() => {
         function fetchProfile() {
             const profileData = user;
@@ -90,7 +97,7 @@ const Profile = () => {
                 </div>
                 <button
                     className="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-md font-medium"
-                    onClick={() => setEditMode(!editMode)}
+                    onClick={() => {editMode ? handleClick() : setEditMode(!editMode)}}
                 >
                     {editMode ? "Save" : "Edit"}
                 </button>
