@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import { Provider } from "react-redux";
 import store from "./util/store";
+import TermsAndConditions from "./screen/Terms&Conditions";
+import PrivacyPolicy from "./screen/PrivacyPolicy";
 const NotFound = lazy(() => import("./components/404"));
 const Unauthorized = lazy(() => import("./components/401"));
 const Forbidden = lazy(() => import("./components/403"));
@@ -39,6 +41,8 @@ createRoot(document.getElementById("root")).render(
                         <Route path="/about" element={<About />} />
                         <Route path="/recovery" element={<Recovery />} />
                     </Route>
+                    <Route path="/terms" element={<TermsAndConditions />} />
+                    <Route path="/privacy" element={<PrivacyPolicy />} />
                     <Route path="/401" element={<Unauthorized />} />
                     <Route path="/403" element={<Forbidden />} />
                     <Route path="/500" element={<ServerError />} />
