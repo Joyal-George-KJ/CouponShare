@@ -36,6 +36,7 @@ const Navbar = () => {
             console.error("Logout failed:", error);
             setIsLogged(true); // Update state after failed logout
         }
+        toggleMenu();
     };
 
     const toggleMenu = () => setIsOpen(!isOpen);
@@ -147,7 +148,7 @@ const Navbar = () => {
                     <div className="mt-6 flex flex-col gap-4">
                         {isLogged ? (
                             <>
-                                <NavLink to={"/profile"}>
+                                <NavLink onClick={toggleMenu} to={"/profile"}>
                                     <img
                                         src={profile.avatar}
                                         alt="Profile"
@@ -164,6 +165,7 @@ const Navbar = () => {
                         ) : (
                             <NavLink
                                 to="/login"
+                                onClick={toggleMenu}
                                 className="w-full bg-blue-500 text-neutral-200 px-4 py-2 rounded-lg text-lg font-medium hover:bg-blue-600 transition-all cursor-pointer"
                             >
                                 Login
