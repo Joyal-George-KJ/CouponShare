@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GoogleAuth from "../components/GoogleAuth";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import AppwriteConfig from "../constants/AppwriteConf";
 import PasswordInput from "../components/PasswordInput";
+import { useSelector } from "react-redux";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    const user = useSelector((state) => state.user.user);
+
+    useEffect(() => {
+        if (user) {
+            navigate("/403")
+        }
+    }, []);
 
     const handleLogin = (e) => {
         e.preventDefault();

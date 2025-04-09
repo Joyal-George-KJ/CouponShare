@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GoogleAuth from "../components/GoogleAuth";
 import AppwriteConfig from "../constants/AppwriteConf";
-import { NavLink } from "react-router-dom";
-import { Info } from "lucide-react";
+import { NavLink, useNavigate } from "react-router-dom";
 import PasswordInput from "../components/PasswordInput";
+import { useSelector } from "react-redux";
 
 const Register = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [toggle, setToggle] = useState(false);
+    const navigate = useNavigate();
+    const user = useSelector((state) => state.user.user);
+
+    useEffect(() => {
+        if (user) {
+            navigate("/403")
+        }
+    }, []);
+    
 
     const handleRegister = (e) => {
         e.preventDefault();
