@@ -35,27 +35,29 @@ class AppwriteConfig {
         }
     }
 
-    newPasswordSet( userID, secret, password ) {
-        const promise = this.account.updateRecovery(
-            userID,
-            secret,
-            password
+    newPasswordSet(userID, secret, password) {
+        const promise = this.account.updateRecovery(userID, secret, password);
+
+        promise.then(
+            function (response) {
+                console.log(response); // Success
+                return response;
+            },
+            function (error) {
+                console.log(error); // Failure
+                return error;
+            }
         );
-        
-        promise.then(function (response) {
-            console.log(response); // Success
-            return response
-        }, function (error) {
-            console.log(error); // Failure
-            return error
-        });
     }
 
     async forgotPassword(data) {
         try {
             if (data.userID && data.secret && data.password) {
-                return this.newPasswordSet(data.userID, data.secret, data.password);
-
+                return this.newPasswordSet(
+                    data.userID,
+                    data.secret,
+                    data.password
+                );
             } else {
                 const url = location.origin + "/recovery";
                 const res = await this.account.createRecovery(data.email, url);
@@ -103,7 +105,7 @@ class AppwriteConfig {
             const user = await this.account.get(); // Check if user is already logged in
             console.log("User already logged in:", user);
             await this.logout();
-            return ;
+            return;
         } catch (error) {
             console.log("No user logged in, proceeding with login...");
             if (data) {
