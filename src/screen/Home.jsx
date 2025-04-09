@@ -27,15 +27,15 @@ function Home() {
             <div className="mt-10 flex flex-col mobile:flex-row gap-4">
                 <NavLink
                     to="/stores"
-                    className="bg-blue-600 mobile:text-sm text-white px-6 py-3 text-lg font-medium rounded-lg hover:bg-blue-700 transition-all shadow shadow-white"
+                    className="bg-blue-600 mobile:text-sm text-white px-6 py-3 tablet:text-lg font-medium rounded-lg hover:bg-blue-700 transition-all shadow shadow-white"
                 >
                     Browse Coupons
                 </NavLink>
                 <button
                     onClick={couponAddHandle}
-                    className="bg-white mobile:text-sm text-blue-600 px-6 py-3 text-lg font-medium rounded-lg hover:bg-neutral-200 transition-all shadow shadow-blue-600"
+                    className="bg-white mobile:text-sm text-blue-600 px-6 py-3 tablet:text-lg font-medium rounded-lg hover:bg-neutral-200 transition-all shadow shadow-blue-600"
                 >
-                    Share a Coupon
+                    Share Coupon
                 </button>
             </div>
 
