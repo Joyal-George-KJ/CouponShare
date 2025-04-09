@@ -14,7 +14,7 @@ function Home() {
         }
     };
     return (
-        <div className="w-full h-full bg-neutral-800 text-white py-20 px-6 flex flex-col items-center mx-auto text-center">
+        <div className="w-full h-full bg-neutral-800 text-white py-8 px-6 flex flex-col items-center mx-auto text-center">
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
                 Save More, Spend Less 💰
             </h1>
@@ -24,16 +24,16 @@ function Home() {
                 and never miss a deal again!
             </p>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <div className="mt-10 flex flex-col mobile:flex-row gap-4">
                 <NavLink
                     to="/stores"
-                    className="bg-blue-600 text-white px-6 py-3 text-lg font-medium rounded-lg hover:bg-blue-700 transition-all shadow shadow-white"
+                    className="bg-blue-600 mobile:text-sm text-white px-6 py-3 text-lg font-medium rounded-lg hover:bg-blue-700 transition-all shadow shadow-white"
                 >
                     Browse Coupons
                 </NavLink>
                 <button
                     onClick={couponAddHandle}
-                    className="bg-white text-blue-600 px-6 py-3 text-lg font-medium rounded-lg hover:bg-neutral-200 transition-all shadow shadow-blue-600"
+                    className="bg-white mobile:text-sm text-blue-600 px-6 py-3 text-lg font-medium rounded-lg hover:bg-neutral-200 transition-all shadow shadow-blue-600"
                 >
                     Share a Coupon
                 </button>
