@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function Footer() {
     return (
-        <footer className="w-full bg-neutral-800 border-t-2 border-neutral-700 text-neutral-400 text-sm py-6 px-6 flex flex-col items-center">
+        <footer className="w-full bg-neutral-200 dark:bg-neutral-800 border-t-2 border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-400 text-sm py-6 px-6 flex flex-col items-center">
             <div className="max-w-4xl w-full flex flex-col sm:flex-row justify-between items-center">
                 <p>&copy; {new Date().getFullYear()} CouponShare. All rights reserved.</p>
                 <div className="flex gap-4 mt-2 sm:mt-0">

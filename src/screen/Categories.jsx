@@ -42,16 +42,16 @@ const Categories = () => {
     return (
         <div>
             <div className="flex justify-between items-center">
-                <h1 className="text-2xl font-medium text-neutral-100">
+                <h1 className="text-2xl font-medium text-neutral-900 dark:text-neutral-100">
                     Categories
                 </h1>
                 {/* Sorting Options */}
-                <div className="flex flex-row justify-center items-center flex-wrap gap-2 bg-neutral-800 rounded-lg">
-                    <label className="text-base font-medium text-neutral-300">
+                <div className="flex flex-row justify-center items-center flex-wrap gap-2 bg-neutral-200 dark:bg-neutral-800 rounded-lg">
+                    <label className="text-base font-medium text-neutral-700 dark:text-neutral-300">
                         Sort by:
                     </label>
                     <select
-                        className="p-1 bg-neutral-700 font-medium capitalize px-2 cursor-pointer text-neutral-100"
+                        className="p-1 bg-neutral-200 dark:bg-neutral-700 font-medium capitalize px-2 cursor-pointer text-neutral-900 dark:text-neutral-100"
                         value={sortType}
                         onChange={(e) => setSortType(e.target.value)}
                     >
