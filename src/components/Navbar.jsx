@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import AppwriteConfig from "../constants/AppwriteConf";
 import Avatar from "./Avatar";
 import { useSelector } from "react-redux";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +48,7 @@ const Navbar = () => {
                 {/* Logo */}
                 <NavLink
                     to="/"
-                    className="text-3xl font-extrabold text-white tracking-wide"
+                    className="text-3xl font-extrabold text-black dark:text-white tracking-wide"
                 >
                     Coupon<span className="text-blue-500">Share</span>
                 </NavLink>
@@ -63,7 +64,7 @@ const Navbar = () => {
                                         `text-lg font-medium transition duration-300 hover:text-blue-400 cursor-pointer ${
                                             isActive
                                                 ? "text-blue-500 border-b-2 border-blue-500"
-                                                : "text-white"
+                                                : "dark:text-white text-black"
                                         }`
                                     }
                                 >
@@ -73,6 +74,9 @@ const Navbar = () => {
                             </li>
                         )
                     )}
+                    <li>
+                        <ThemeToggle />
+                    </li>
                 </ul>
 
                 {/* Auth Buttons */}
@@ -119,7 +123,7 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="fixed top-0 right-0 h-fit w-64 bg-neutral-800 bg-opacity-90 backdrop-blur-md p-6 transition-transform duration-300 ease-in-out desktop:hidden">
+                <div className="fixed top-0 right-0 bottom-0 h-screen w-64 bg-neutral-800 bg-opacity-90 backdrop-blur-md p-6 transition duration-300 ease-in-out desktop:hidden">
                     <button
                         onClick={toggleMenu}
                         className="absolute top-5 right-5 text-white"
