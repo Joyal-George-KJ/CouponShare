@@ -1,23 +1,24 @@
-import { useEffect, useState } from "react";
+// ThemeToggle.js
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setTheme, toggleTheme } from "../util/slices/themeSlice";
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const dispatch = useDispatch();
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
 
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+    const savedTheme = localStorage.getItem("theme") || "light";
+    dispatch(setTheme(savedTheme));
+  }, [dispatch]);
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="fixed top-4 right-4 p-2 rounded bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+      onClick={() => dispatch(toggleTheme())}
+      className="transition-colors duration-300"
+      aria-label="Toggle Theme"
     >
-      {theme === "dark" ? "☀ Light Mode" : "🌙 Dark Mode"}
+      {isDarkMode ? <span className="text-xl">🌙</span> : <span className="text-xl">☀️</span>}
     </button>
   );
 };
