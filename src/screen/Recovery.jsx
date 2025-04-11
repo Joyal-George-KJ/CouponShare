@@ -31,8 +31,8 @@ function Recovery() {
     };
 
     return (
-        <div className="min-h-[75dvh] flex items-center justify-center bg-neutral-800 text-white">
-            <div className="bg-neutral-800 p-8 rounded-xl shadow shadow-neutral-500 w-full max-w-md">
+        <div className="min-h-[75dvh] flex items-center justify-center bg-neutral-200 dark:bg-neutral-900 text-black dark:text-white">
+            <div className="bg-neutral-200 dark:bg-neutral-800 p-8 rounded-xl shadow shadow-neutral-500 w-full max-w-md">
                 <h2 className="text-3xl font-bold text-center">
                     Password Recovery
                 </h2>
@@ -52,13 +52,13 @@ function Recovery() {
                             placeholder="Email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full p-3 bg-neutral-300 dark:bg-neutral-700 rounded-lg text-black dark:text-white outline-none focus:ring-2 focus:ring-blue-500"
                             required
                         />
                     )}
                     <button
                         type="submit"
-                        className="w-full bg-blue-500 py-3 rounded-lg text-lg font-medium hover:bg-blue-600 transition-all cursor-pointer"
+                        className="w-full bg-blue-500 py-3 text-white rounded-lg text-lg font-medium hover:bg-blue-600 transition-all cursor-pointer"
                     >
                         Send Link
                     </button>

@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
     return (
-        <div className="h-fit bg-white dark:bg-neutral-800 text-neutral-800 dark:text-white px-6">
+        <div className="h-fit bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-white px-6">
             <h1 className="text-xl font-bold mb-4">About CouponShare</h1>
             <p className="mb-4 text-lg text-neutral-700 dark:text-neutral-300">
                 CouponShare is a community-driven platform where users can find

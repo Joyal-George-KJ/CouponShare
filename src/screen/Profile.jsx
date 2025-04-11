@@ -64,7 +64,7 @@ const Profile = () => {
     }, []);
 
     return (
-        <div className="bg-neutral-800 text-white">
+        <div className="bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white">
             <div className="flex items-center gap-4">
                 <Avatar pic={profile?.avatar ? profile.avatar : profile.name} />
                 <div className="flex-1">
@@ -74,7 +74,7 @@ const Profile = () => {
                             name="name"
                             value={profile.name}
                             onChange={handleChange}
-                            className="p-2 bg-neutral-700 text-white rounded-md w-full"
+                            className="p-2 bg-neutral-300 dark:bg-neutral-700 text-black dark:text-white rounded-md w-full"
                         />
                     ) : (
                         <h2 className="laptop:text-2xl font-bold mobile:text-lg">
@@ -88,15 +88,15 @@ const Profile = () => {
                                 name="bio"
                                 value={profile.bio}
                                 onChange={handleChange}
-                                className="w-full p-2 mt-4 bg-neutral-700 text-white rounded-md"
+                                className="w-full p-2 mt-4 bg-neutral-300 dark:bg-neutral-700 text-black dark:text-white rounded-md"
                             />
                         ) : (
-                            <p className="text-neutral-300">{profile.bio}</p>
+                            <p className="text-neutral-700 dark:text-neutral-300">{profile.bio}</p>
                         )}
                     </div>
                 </div>
                 <button
-                    className="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-md font-medium"
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md font-medium"
                     onClick={() => {editMode ? handleClick() : setEditMode(!editMode)}}
                 >
                     {editMode ? "Save" : "Edit"}
@@ -104,7 +104,7 @@ const Profile = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-4 mt-6">
-                <div className="bg-neutral-700 p-4 rounded-lg text-center">
+                <div className="bg-neutral-300 dark:bg-neutral-700 p-4 rounded-lg text-center">
                     <h3 className="text-lg mobile:text-base font-bold">
                         Shared Coupons
                     </h3>
@@ -112,7 +112,7 @@ const Profile = () => {
                         {profile.sharedCoupons}
                     </p>
                 </div>
-                <div className="bg-neutral-700 p-4 rounded-lg text-center">
+                <div className="bg-neutral-300 dark:bg-neutral-700 p-4 rounded-lg text-center">
                     <h3 className="text-lg mobile:text-base font-bold">
                         Revenue Generated
                     </h3>
@@ -120,7 +120,7 @@ const Profile = () => {
                         ₹{profile.revenueGenerated.toFixed(2)}
                     </p>
                 </div>
-                <div className="bg-neutral-700 p-4 rounded-lg text-center col-span-2">
+                <div className="bg-neutral-300 dark:bg-neutral-700 p-4 rounded-lg text-center col-span-2">
                     <h3 className="text-lg mobile:text-base font-bold">
                         Saved Coupons
                     </h3>
