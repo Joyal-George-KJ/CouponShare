@@ -29,7 +29,6 @@
     appearance: none;
     margin-top: 1rem;
     height: 2px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
     outline: none; /* Remove outline */
     opacity: 1; /* Set transparency (for mouse-over effects on hover) */
 }
