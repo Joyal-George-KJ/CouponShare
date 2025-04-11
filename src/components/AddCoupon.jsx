@@ -85,15 +85,15 @@ function AddCoupon() {
             <div className={`w-full flex items-center justify-between`}>
                 <SearchBar />
                 <button
-                    className="cursor-pointer w-fit tablet flex items-center gap-2 px-4 py-2 rounded-lg bg-neutral-700 hover:bg-neutral-800 hover:border hover:border-neutral-700"
+                    className="cursor-pointer w-fit tablet flex items-center gap-2 px-4 py-2 rounded-lg bg-neutral-300 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-800 hover:border hover:border-neutral-300 transition ease-in-out dark:hover:border-neutral-700"
                     onClick={() => setToggle(!toggle)}
                 >
                     {width > 722 && "Add Coupon"} <PlusIcon className="w-6 h-6" />
                 </button>
             </div>
             {toggle && (
-                <div className="min-h-[75dvh] flex items-center justify-center bg-neutral-800 text-white fixed top-0 left-0 right-0 bottom-0 z-50">
-                    <div className="bg-neutral-800 p-8 rounded-xl shadow shadow-neutral-500 w-full max-w-md">
+                <div className="min-h-[75dvh] flex items-center justify-center bg-neutral-200 dark:bg-neutral-800 text-white fixed top-0 left-0 right-0 bottom-0 z-50">
+                    <div className="bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white p-8 rounded-xl shadow shadow-neutral-400 dark:shadow-neutral-500 w-full max-w-md">
                         <h2 className="text-3xl font-bold text-center">
                             Add Coupon
                         </h2>
@@ -104,7 +104,7 @@ function AddCoupon() {
                                 placeholder="Title"
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
-                                className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full p-3 bg-neutral-300 dark:bg-neutral-700 rounded-lg text-black dark:text-white outline-none focus:ring-2 focus:ring-blue-500"
                                 required
                             />
                             <input
@@ -112,12 +112,12 @@ function AddCoupon() {
                                 placeholder="Description"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
-                                className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full p-3 bg-neutral-300 dark:bg-neutral-700 rounded-lg text-black dark:text-white outline-none focus:ring-2 focus:ring-blue-500"
                                 required
                             />
                             {tags.length > 0 && <div className="flex flex-wrap gap-2">
                                 {tags.map((val, ind) => (
-                                    <span className="px-2 py-1 rounded bg-neutral-700 " onClick={() => {
+                                    <span className="px-2 py-1 rounded bg-neutral-300 dark:bg-neutral-700 " onClick={() => {
                                         setTags(tags.filter((tag, index) => index !== ind));
                                     }} key={ind}>{val}</span>
                                 ))}
@@ -129,7 +129,7 @@ function AddCoupon() {
                                 value={tag}
                                 onKeyDown={handleTags}
                                 onChange={(e) => setTag(e.target.value)}
-                                className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full p-3 bg-neutral-300 dark:bg-neutral-700 rounded-lg text-black dark:text-white outline-none focus:ring-2 focus:ring-blue-500"
                                 required={tags.length === 0}
                             />
                             <input
@@ -138,7 +138,7 @@ function AddCoupon() {
                                 ref={inputRef}
                                 value={code}
                                 onChange={(e) => setCode(e.target.value)}
-                                className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full p-3 bg-neutral-300 dark:bg-neutral-700 rounded-lg text-black dark:text-white outline-none focus:ring-2 focus:ring-blue-500"
                                 required
                             />
 
@@ -152,7 +152,7 @@ function AddCoupon() {
                                 </button>
                                 <button
                                     type="submit"
-                                    className="w-full bg-blue-500 py-3 rounded-lg text-lg font-medium hover:bg-blue-600 transition-all cursor-pointer"
+                                    className="w-full bg-blue-500 py-3 text-white rounded-lg text-lg font-medium hover:bg-blue-600 transition-all cursor-pointer"
                                 >
                                     Create
                                 </button>

@@ -25,19 +25,19 @@ function PasswordInput({ pattern, password, setPassword, placeholder }) {
                     pattern={pattern}
                     value={password}
                     onChange={changeHandle}
-                    className="w-full p-3 bg-neutral-700 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-neutral-300 dark:bg-neutral-700 rounded-lg text-black dark:text-white outline-none focus:ring-2 focus:ring-blue-500"
                     required
                 />
                 {type === "text" ? (
                     <EyeIcon
-                        className="absolute top-3 right-3 text-neutral-300 cursor-pointer"
+                        className="absolute top-3 right-3 text-neutral-700 dark:text-neutral-300 cursor-pointer"
                         onClick={() => {
                             setType("password");
                         }}
                     />
                 ) : (
                     <EyeClosedIcon
-                        className="absolute top-3 right-3 text-neutral-300 cursor-pointer"
+                        className="absolute top-3 right-3 text-neutral-700 dark:text-neutral-300 cursor-pointer"
                         onClick={() => {
                             setType("text");
                         }}
@@ -45,7 +45,7 @@ function PasswordInput({ pattern, password, setPassword, placeholder }) {
                 )}
             </div>
             {toggle ? (
-                <p className="text-yellow-400 text-sm">
+                <p className="text-yellow-600 dark:text-yellow-400 text-sm">
                     Password must contain <br />
                     <li>At least 8 characters</li> <li>1 uppercase letter</li>{" "}
                     <li>1 lowercase letter</li>{" "}
