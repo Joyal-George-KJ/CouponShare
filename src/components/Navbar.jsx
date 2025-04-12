@@ -146,6 +146,9 @@ const Navbar = () => {
                                 </li>
                             )
                         )}
+                        <li>
+                            <ThemeToggle />
+                        </li>
                     </ul>
 
                     {/* Auth Buttons */}
