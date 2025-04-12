@@ -144,9 +144,11 @@ npm run dev
 ### 🔖 Things you could help with:
 
 - Better coupon sorting or tag filtering
+- Report Coupons and Admin Notifying
 - Adding markdown support to coupon descriptions
 - Notification system or chat
 - Admin dashboard & spam control
+- Extension for easy apply of coupons in sites
 
 ---
 
