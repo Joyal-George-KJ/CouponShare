@@ -40,9 +40,9 @@ createRoot(document.getElementById("root")).render(
                         <Route path="/settings" element={<Settings />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/recovery" element={<Recovery />} />
+                        <Route path="/terms" element={<TermsAndConditions />} />
+                        <Route path="/privacy" element={<PrivacyPolicy />} />
                     </Route>
-                    <Route path="/terms" element={<TermsAndConditions />} />
-                    <Route path="/privacy" element={<PrivacyPolicy />} />
                     <Route path="/401" element={<Unauthorized />} />
                     <Route path="/403" element={<Forbidden />} />
                     <Route path="/500" element={<ServerError />} />
