@@ -1,36 +1,64 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
-function TermsAndConditions() {
+const TermsAndConditions = () => {
     return (
-        <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white px-6 py-12">
-            <h1 className="text-3xl font-bold mb-6">Terms & Conditions</h1>
-            <p className="mb-4">
-                Welcome to CouponShare. By accessing or using our service, you agree to be bound by the following terms and conditions.
-            </p>
+        <main className="max-w-4xl mx-auto px-4 py-10 text-left text-neutral-800 dark:text-neutral-200 bg-neutral-200 dark:bg-neutral-800">
+            <Helmet>
+                <title>Terms & Conditions | CouponShare</title>
+                <meta name="description" content="Read the terms and conditions of using CouponShare responsibly and safely." />
+                <meta name="robots" content="index, follow" />
+                <link rel="canonical" href="https://couponshare.joyalgeorgekj.com/terms" />
+            </Helmet>
 
-            <h2 className="text-xl font-semibold mt-6 mb-2">1. Use of Service</h2>
-            <p className="mb-4">
-                You agree not to misuse our services or attempt to disrupt the platform. Coupons shared must be accurate and lawful.
-            </p>
+            <h1 className="text-4xl font-bold mb-6">Terms & Conditions</h1>
 
-            <h2 className="text-xl font-semibold mt-6 mb-2">2. User Content</h2>
-            <p className="mb-4">
-                You are responsible for the content you post. We reserve the right to remove any content that violates our policies.
-            </p>
+            <p className="mb-6">Welcome to <strong>CouponShare</strong>. By using our website, you agree to the following terms and conditions.</p>
 
-            <h2 className="text-xl font-semibold mt-6 mb-2">3. Account Responsibility</h2>
-            <p className="mb-4">
-                You are responsible for maintaining the confidentiality of your account and password.
-            </p>
+            <section className="mb-8">
+                <h2 className="text-2xl font-semibold mb-2">1. Acceptance of Terms</h2>
+                <p>Using our platform means you agree to be bound by these terms and our Privacy Policy.</p>
+            </section>
 
-            <h2 className="text-xl font-semibold mt-6 mb-2">4. Changes to Terms</h2>
-            <p className="mb-4">
-                We may update these terms from time to time. Continued use of the service constitutes acceptance of the new terms.
-            </p>
+            <section className="mb-8">
+                <h2 className="text-2xl font-semibold mb-2">2. Eligibility</h2>
+                <p>You must be at least 13 years old to use CouponShare.</p>
+            </section>
 
-            <p className="mt-8 text-sm text-neutral-500 dark:text-neutral-400">Last updated: April 9, 2025</p>
-        </div>
+            <section className="mb-8">
+                <h2 className="text-2xl font-semibold mb-2">3. User Responsibilities</h2>
+                <ul className="list-disc list-inside space-y-1">
+                    <li>Provide accurate account information</li>
+                    <li>Keep login details confidential</li>
+                    <li>Be responsible for activities on your account</li>
+                </ul>
+            </section>
+
+            <section className="mb-8">
+                <h2 className="text-2xl font-semibold mb-2">4. Content and Coupon Use</h2>
+                <p>Coupons are shared by users and third-party providers. We do not guarantee the accuracy or availability of coupons.</p>
+            </section>
+
+            <section className="mb-8">
+                <h2 className="text-2xl font-semibold mb-2">5. Prohibited Behavior</h2>
+                <p>No scraping, abusing, or sharing malicious content. Violations may result in suspension or legal action.</p>
+            </section>
+
+            <section className="mb-8">
+                <h2 className="text-2xl font-semibold mb-2">6. Changes to Terms</h2>
+                <p>We may modify these terms anytime. Continued use means you accept the changes.</p>
+            </section>
+
+            <section className="mb-8">
+                <h2 className="text-2xl font-semibold mb-2">7. Contact Us</h2>
+                <p>Email: <a href="mailto:support@joyalgeorgekj.com" className="text-blue-500 underline">support@joyalgeorgekj.com</a></p>
+            </section>
+
+            <footer className="text-sm text-neutral-500 dark:text-neutral-400 mt-12">
+                Last Updated: April 13, 2025
+            </footer>
+        </main>
     );
-}
+};
 
 export default TermsAndConditions;
