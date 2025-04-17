@@ -9,15 +9,15 @@ const Register = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [agreed, setAgreed] = useState(false);
     const navigate = useNavigate();
     const user = useSelector((state) => state.user.user);
 
     useEffect(() => {
         if (user) {
-            navigate("/403")
+            navigate("/403");
         }
     }, []);
-    
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -54,10 +54,48 @@ const Register = () => {
                         className="w-full p-3 bg-neutral-300 dark:bg-neutral-700 rounded-lg text-black dark:text-white outline-none focus:ring-2 focus:ring-blue-500"
                         required
                     />
-                    <PasswordInput pattern={/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_=+-]).{8,20}$/i} setPassword={setPassword} placeholder={"Password"} key={'1'} password={password} />
+                    <PasswordInput
+                        pattern={
+                            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_=+-]).{8,20}$/i
+                        }
+                        setPassword={setPassword}
+                        placeholder={"Password"}
+                        key={"1"}
+                        password={password}
+                    />
+
+                    <div className="flex items-center space-x-2">
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            checked={agreed}
+                            onChange={(e) => setAgreed(e.target.checked)}
+                            required
+                            className="accent-blue-500"
+                        />
+                        <label htmlFor="terms" className="text-sm">
+                            I agree to the{" "}
+                            <NavLink
+                                to="/terms"
+                                className="text-blue-400 underline"
+                            >
+                                Terms & Conditions
+                            </NavLink>{" "}
+                            and{" "}
+                            <NavLink
+                                to="/privacy"
+                                className="text-blue-400 underline"
+                            >
+                                Privacy Policy
+                            </NavLink>
+                            .
+                        </label>
+                    </div>
+
                     <button
                         type="submit"
-                        className="w-full bg-blue-500 py-3 text-white rounded-lg text-lg font-medium hover:bg-blue-600 transition-all cursor-pointer"
+                        className="w-full bg-blue-500 py-3 text-white rounded-lg text-lg font-medium hover:bg-blue-600 transition-all cursor-pointer disabled:opacity-60"
+                        disabled={!agreed}
                     >
                         Sign Up
                     </button>
