@@ -1,0 +1,11 @@
+# robots.txt for CouponShare
+User-agent: *
+Allow: /
+
+# Block internal/private paths if needed
+Disallow: /settings
+Disallow: /profile
+Disallow: /recovery
+
+# Sitemap location
+Sitemap: https://couponshare.joyalgeorgekj.com/sitemap.xml

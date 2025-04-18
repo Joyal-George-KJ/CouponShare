@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Home -->
+  <url>
+    <loc>https://couponshare.joyalgeorgekj.com/</loc>
+    <lastmod>2025-04-13</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- Stores -->
+  <url>
+    <loc>https://couponshare.joyalgeorgekj.com/stores</loc>
+    <lastmod>2025-04-13</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Dynamic stores/:key/:value are not individually listed because they change frequently -->
+
+  <!-- Categories -->
+  <url>
+    <loc>https://couponshare.joyalgeorgekj.com/categories</loc>
+    <lastmod>2025-04-13</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Login -->
+  <url>
+    <loc>https://couponshare.joyalgeorgekj.com/login</loc>
+    <lastmod>2025-04-13</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Register -->
+  <url>
+    <loc>https://couponshare.joyalgeorgekj.com/register</loc>
+    <lastmod>2025-04-13</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Profile -->
+  <url>
+    <loc>https://couponshare.joyalgeorgekj.com/profile</loc>
+    <lastmod>2025-04-13</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <!-- Settings -->
+  <url>
+    <loc>https://couponshare.joyalgeorgekj.com/settings</loc>
+    <lastmod>2025-04-13</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://couponshare.joyalgeorgekj.com/about</loc>
+    <lastmod>2025-04-13</lastmod>
+    <priority>0.50</priority>
+  </url>
+
+  <!-- Recovery -->
+  <url>
+    <loc>https://couponshare.joyalgeorgekj.com/recovery</loc>
+    <lastmod>2025-04-13</lastmod>
+    <priority>0.50</priority>
+  </url>
+
+  <!-- Terms and Conditions -->
+  <url>
+    <loc>https://couponshare.joyalgeorgekj.com/terms</loc>
+    <lastmod>2025-04-13</lastmod>
+    <priority>0.40</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://couponshare.joyalgeorgekj.com/privacy</loc>
+    <lastmod>2025-04-13</lastmod>
+    <priority>0.40</priority>
+  </url>
+
+</urlset>
