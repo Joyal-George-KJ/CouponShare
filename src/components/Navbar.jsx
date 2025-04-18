@@ -50,7 +50,7 @@ const Navbar = () => {
                     to="/"
                     className="laptop:text-3xl mobile:text-xl font-extrabold text-black dark:text-white tracking-wide"
                 >
-                    Coupon<span className="text-blue-500">Share</span>
+                    Coupon<span className="text-blue-800 dark:text-blue-500">Share</span>
                 </NavLink>
 
                 {/* Desktop Menu */}
