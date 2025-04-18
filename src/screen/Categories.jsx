@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import Tags from "../components/Tags";
 import AppwriteConfig from "../constants/AppwriteConf";
 import TagLoader from "../components/TagLoader";
+import { ListFilter, X } from "lucide-react";
 
 const Categories = () => {
     const [sortType, setSortType] = useState("A-Z");
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [show, setShow] = useState(window.innerWidth > 768);
 
     useEffect(() => {
         let config = new AppwriteConfig(
@@ -47,18 +49,18 @@ const Categories = () => {
                 </h1>
                 {/* Sorting Options */}
                 <div className="flex flex-row justify-center items-center flex-wrap gap-2 bg-neutral-200 dark:bg-neutral-800 rounded-lg">
-                    <label className="text-base font-medium text-neutral-700 dark:text-neutral-300">
-                        Sort by:
-                    </label>
-                    <select
-                        className="p-1 bg-neutral-200 dark:bg-neutral-700 font-medium capitalize px-2 cursor-pointer text-neutral-900 dark:text-neutral-100"
-                        value={sortType}
-                        onChange={(e) => setSortType(e.target.value)}
-                    >
-                        <option value="A-Z">A-Z</option>
-                        <option value="Z-A">Z-A</option>
-                        <option value="Count">Numbers (Most First)</option>
-                    </select>
+                    {!show ? <ListFilter onClick={() => setShow(!show)} /> : <X onClick={() => setShow(!show)} />}
+                    {show && (
+                        <select
+                            className="p-1 bg-neutral-200 dark:bg-neutral-700 font-medium capitalize px-2 cursor-pointer text-neutral-900 dark:text-neutral-100"
+                            value={sortType}
+                            onChange={(e) => setSortType(e.target.value)}
+                        >
+                            <option value="A-Z">A-Z</option>
+                            <option value="Z-A">Z-A</option>
+                            <option value="Count">Numbers (Most First)</option>
+                        </select>
+                    )}
                 </div>
             </div>
 
