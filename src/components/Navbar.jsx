@@ -48,13 +48,13 @@ const Navbar = () => {
                 {/* Logo */}
                 <NavLink
                     to="/"
-                    className="text-3xl font-extrabold text-black dark:text-white tracking-wide"
+                    className="laptop:text-3xl mobile:text-xl font-extrabold text-black dark:text-white tracking-wide"
                 >
                     Coupon<span className="text-blue-500">Share</span>
                 </NavLink>
 
                 {/* Desktop Menu */}
-                <ul className="hidden desktop:flex gap-8">
+                <ul className="hidden desktop:flex gap-8 items-center">
                     {["stores", "categories", "about", "settings"].map(
                         (route) => (
                             <li key={route}>
@@ -74,25 +74,20 @@ const Navbar = () => {
                             </li>
                         )
                     )}
-                    <li>
-                        <ThemeToggle />
-                    </li>
                 </ul>
 
                 {/* Auth Buttons */}
-                <div className="hidden desktop:flex gap-4">
+                <div className="hidden desktop:grid grid-cols-3 justify-items-end gap-4">
                     {isLogged ? (
                         <>
-                            <NavLink to="/profile">
+                            <NavLink to="/profile" className='w-12'>
                                 <Avatar
                                     pic={
                                         profile.avatar
                                             ? profile.avatar
                                             : profile.name
                                     }
-                                    className={`${
-                                        profile?.avatar ? "w-18" : "w-12"
-                                    } rounded-full`}
+                                    className="w-full h-12 rounded-full border-2 border-neutral-500 cursor-pointer object-cover"
                                 />
                             </NavLink>
                             <button
@@ -101,6 +96,7 @@ const Navbar = () => {
                             >
                                 Logout
                             </button>
+                            <ThemeToggle />
                         </>
                     ) : (
                         <NavLink
@@ -115,7 +111,7 @@ const Navbar = () => {
                 {/* Mobile Menu Toggle */}
                 <button
                     onClick={toggleMenu}
-                    className="desktop:hidden text-white"
+                    className="desktop:hidden text-black dark:text-white"
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
@@ -123,10 +119,10 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="fixed top-0 right-0 bottom-0 h-screen w-64 bg-neutral-800 bg-opacity-90 backdrop-blur-md p-6 transition duration-300 ease-in-out desktop:hidden">
+                <div className="fixed top-0 border-l-2 border-neutral-400 right-0 bottom-0 h-screen w-64 dark:bg-neutral-800 bg-neutral-200 bg-opacity-90 backdrop-blur-md p-6 transition duration-300 ease-in-out desktop:hidden">
                     <button
                         onClick={toggleMenu}
-                        className="absolute top-5 right-5 text-white"
+                        className="absolute top-5 right-5 text-black dark:text-white"
                     >
                         <X size={28} />
                     </button>
@@ -138,7 +134,7 @@ const Navbar = () => {
                                     <NavLink
                                         to={`/${route}`}
                                         onClick={toggleMenu}
-                                        className="text-lg text-white font-semibold transition-transform hover:scale-105 block cursor-pointer"
+                                        className="text-lg text-black dark:text-white font-semibold transition-transform hover:scale-105 block cursor-pointer"
                                     >
                                         {route.charAt(0).toUpperCase() +
                                             route.slice(1)}
@@ -146,9 +142,7 @@ const Navbar = () => {
                                 </li>
                             )
                         )}
-                        <li>
-                            <ThemeToggle />
-                        </li>
+
                     </ul>
 
                     {/* Auth Buttons */}
@@ -156,11 +150,16 @@ const Navbar = () => {
                         {isLogged ? (
                             <>
                                 <NavLink onClick={toggleMenu} to={"/profile"}>
-                                    <img
+                                    {/* <img
                                         src={profile.avatar}
                                         alt="Profile"
                                         className="w-12 h-12 rounded-full border-2 border-neutral-500 cursor-pointer object-cover"
-                                    />
+                                    /> */}
+                                    <Avatar pic={
+                                        profile.avatar
+                                            ? profile.avatar
+                                            : profile.name
+                                    } className="w-12 h-12 rounded-full border-2 border-neutral-500 cursor-pointer object-cover" />
                                 </NavLink>
                                 <button
                                     onClick={handleLogout}
@@ -168,6 +167,7 @@ const Navbar = () => {
                                 >
                                     Logout
                                 </button>
+                                <ThemeToggle />
                             </>
                         ) : (
                             <NavLink
