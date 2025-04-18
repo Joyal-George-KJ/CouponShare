@@ -21,9 +21,9 @@ function Card({
     };
 
     return (
-        <div className="flex flex-col p-5 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-lg shadow-md shadow-neutral-100 dark:shadow-neutral-900 h-fit w-full max-w-md transition hover:scale-105 hover:bg-neutral-300 dark:hover:bg-neutral-700">
+        <div className="flex flex-col p-5 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-lg shadow-md shadow-neutral-400 dark:shadow-neutral-900 h-fit w-full max-w-md transition hover:scale-105 hover:bg-neutral-300 dark:hover:bg-neutral-700">
             {/* Tags */}
-            <div className="flex flex-wrap gap-2 mb-3">
+            <div className="flex flex-wrap gap-2 mb-3 text-white">
                 {tags.map((tag, index) => (
                     <span
                         key={index}
@@ -57,7 +57,7 @@ function Card({
                     href={redirect}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between gap-2 mt-3 bg-neutral-200 dark:bg-neutral-800  text-black dark:text-white py-2 px-4 rounded transition"
+                    className="flex items-center justify-between gap-2 mt-3 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white py-2 px-4 rounded transition"
                 >
                     <code className="w-3/4 line-clamp-1">{redirect}</code>
                     <ExternalLink size={18} /> 
