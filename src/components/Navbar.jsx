@@ -111,6 +111,7 @@ const Navbar = () => {
                 {/* Mobile Menu Toggle */}
                 <button
                     onClick={toggleMenu}
+                    aria-label="Hamburg Button"
                     className="desktop:hidden text-black dark:text-white"
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -123,6 +124,7 @@ const Navbar = () => {
                     <button
                         onClick={toggleMenu}
                         className="absolute top-5 right-5 text-black dark:text-white"
+                        aria-label="Hamburg Button Close"
                     >
                         <X size={28} />
                     </button>
